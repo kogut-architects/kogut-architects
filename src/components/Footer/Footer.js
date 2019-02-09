@@ -2,53 +2,31 @@ import React from "react";
 import "./styles.scss";
 
 export const FooterTemplate = ({ data }) => {
-  const { logoImage, socialLinks } = data;
+  const { menuItems } = data;
 
   return (
-    <nav className="footer">
-      <div className="footer-container  container">
-        <div className="footer-top">
-          <div className="footer-about">
-            <h4 className="footer-aboutTitle">
-              <img
-                className="footer-aboutTitleImg"
-                src={logoImage.image}
-                alt={logoImage.imageAlt}
-              />
-            </h4>
-            <p className="footer-aboutDescription">{logoImage.tagline}</p>
-          </div>
-          {socialLinks.length > 0 && (
-            <ul className="footer-socialMenu">
-              {socialLinks.map(socialLink => (
-                <li key={socialLink.linkURL} className="footer-socialMenuItem">
+    <footer className="footer">
+      <div className="footer-inner">
+        <div className="footer-bottom container">
+          <div className="footer-bottom-container">
+          {menuItems.length > 0 && (
+            <ul className="footer-menu-items">
+              {menuItems.map(menuItem => (
+                <li key={menuItem.label} className="footer-socialMenuItem">
                   <a
-                    className="footer-socialLink"
-                    href={socialLink.linkURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    className="footer-menu-item"
+                    href={menuItem.linkURL}
                   >
-                    <img
-                      className="footer-socialLinkIcon"
-                      src={socialLink.image}
-                      alt={socialLink.imageAlt}
-                    />
-                    {socialLink.label}
+                    {menuItem.label}
                   </a>
                 </li>
               ))}
             </ul>
           )}
-        </div>
-        <div className="footer-bottom">
-          <div className="footer-flag">
-            <span role="img" aria-label="Made in Canada">
-              🇨🇦
-            </span>
           </div>
         </div>
       </div>
-    </nav>
+    </footer>
   );
 };
 

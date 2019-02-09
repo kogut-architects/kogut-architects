@@ -2,7 +2,7 @@
 @import "../../styles/mixins";
 
 .footer {
-  background-color: $background-dark;
+  background-color: $background-light;
   @include medium-font;
   color: $body-light;
   padding: 80px 20px;
@@ -11,7 +11,22 @@
     padding: 40px 20px;
     height: $footer-height;
   }
+  &-menu-items > li {
+    display: inline;
+    text-transform: uppercase; 
+    font-size: 17px;
+  }
+  &-menu-items > li:not(:last-child):after {
+    content: "•";
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 
+  &-bottom {
+    color: $black;
+    border-top: 1px solid black;
+    text-align: center;
+  }
   &-container {
     display: flex;
     flex-direction: column;
@@ -22,7 +37,9 @@
       flex-direction: row;
     }
   }
-
+  &-bottom-container {
+    padding: 50px;
+  }
   &-top {
     display: flex;
     flex-direction: column;

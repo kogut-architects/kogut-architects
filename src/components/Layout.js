@@ -30,10 +30,9 @@ export const query = graphql`
               imageAlt
               tagline
             }
-            socialLinks {
-              image
-              imageAlt
+            menuItems {
               label
+              linkType
               linkURL
             }
           }
