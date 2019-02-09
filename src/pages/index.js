@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
-import Carousel from 'nuka-carousel';
+//import Carousel from 'nuka-carousel';
 
 import Layout from "../components/Layout";
 import "../styles/home.scss";
@@ -14,11 +14,7 @@ export const HomePageTemplate = ({ home }) => {
       <section className="main-content">
         <div className="header-container  container">
           <div className="header-image-carousel"> 
-            <Carousel>
-              <div>Slide 1</div>
-              <img src="/img/annie-spratt-608001-unsplash.jpg"/>
-              <div>Slide 3</div>
-            </Carousel>
+            
           </div>
         </div>
       </section>
