@@ -35,7 +35,3 @@ a {
     padding: $section-padding 0;
   }
 }
-
-main {
-  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
-}
