@@ -2,13 +2,14 @@ import React from "react";
 
 import "./styles.scss";
 import CustomLink from "../CustomLink";
+import logo from './logo.png';
 
 export const NavbarTemplate = ({ data }) => (
   <nav className="navbar">
     <div className="container">
       <div className="navbar-container">
         <a>
-          <img src="/img/logo.png"></img>
+          <img src={logo}></img>
         </a>
       </div>
     </div>
