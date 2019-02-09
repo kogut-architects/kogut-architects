@@ -26,11 +26,6 @@ export const query = graphql`
         node {
           id
           frontmatter {
-            logoImage {
-              image
-              imageAlt
-              tagline
-            }
             menuItems {
               label
               linkType
@@ -45,10 +40,6 @@ export const query = graphql`
         node {
           id
           frontmatter {
-            logoImage {
-              image
-              imageAlt
-            }
             menuItems {
               label
               linkType
