@@ -12,7 +12,7 @@ export const HomePageTemplate = ({ home }) => {
   return (
     <>
       <section className="main-content">
-        <div className="header-container  container">
+        <div className="container">
           <div className="header-image-carousel"> 
           <Carousel>
   <Carousel.Item>
