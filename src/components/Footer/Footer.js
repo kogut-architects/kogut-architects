@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'gatsby';
+
 import "./styles.scss";
 
 export const FooterTemplate = ({ data }) => {
@@ -12,13 +14,12 @@ export const FooterTemplate = ({ data }) => {
           {menuItems.length > 0 && (
             <ul className="footer-menu-items">
               {menuItems.map(menuItem => (
-                <li key={menuItem.label} className="footer-socialMenuItem">
-                  <a
-                    className="footer-menu-item"
-                    href={menuItem.linkURL}
+                <li key={menuItem.label}>
+                  <Link className="footer-menu-item"
+                    to={menuItem.linkURL}
                   >
                     {menuItem.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

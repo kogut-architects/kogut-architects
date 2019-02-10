@@ -22,6 +22,15 @@
     margin-right: 20px;
   }
 
+  &-menu-items > li > a { 
+    transition: .5s;
+  }
+
+  &-menu-items > li > a:hover { 
+    text-decoration: none;
+    color: #b7b7b7;
+  }
+
   &-bottom {
     color: $black;
     border-top: 1px solid black;
