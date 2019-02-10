@@ -19,10 +19,10 @@ callToActions:
     linkURL: 'mailto:contact@js-wakanda.org'
     subHeading: Want to present at an upcoming meetup? Contact us.
 seo:
-  browserTitle: JS Wakanda
+  browserTitle: Kogut Architects
   description: >-
     JavaScript meetup group in Wakanda where JavaScript developers get together
     for presentations and to meet others in the community.
-  title: JavaScript Wakanda
+  title: Kogut Architects
 ---
 

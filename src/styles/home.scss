@@ -1,7 +1,11 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
-.header {
+.main-content {
+  height: 250px;
+}
+
+.home-header {
   min-height: 200px;
 
   @include respond-to("medium") {

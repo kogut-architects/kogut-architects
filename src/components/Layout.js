@@ -3,7 +3,8 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 
 import "../styles";
-import { Navbar } from "../components/Navbar";
+//import { Navbar } from "../components/Navbar";
+import { Header } from '../components/Header'
 import { Footer } from "../components/Footer";
 
 const TemplateWrapper = ({ footerData = null, navbarData = null, children }) => (
@@ -13,7 +14,7 @@ const TemplateWrapper = ({ footerData = null, navbarData = null, children }) => 
       <meta name="robots" content="noindex"></meta>
       <meta name="keywords" content="" /> 
     </Helmet>
-    <Navbar data={navbarData} />
+    <Header data={navbarData} />
     <main>{children}</main>
     <Footer data={footerData} />
   </div>
