@@ -39,6 +39,26 @@ module.exports = {
         logo: "./src/img/favicon.png",
       },
     },
+    /*{
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        // your wordpress source
+        baseUrl: `kogut-architects.com`,
+        protocol: `http`,
+        // is it hosted on wordpress.com, or self-hosted?
+        hostingWPCOM: false,
+        // does your site use the Advanced Custom Fields Plugin?
+        useACF: false,
+        auth: {
+          // If auth.user and auth.pass are filled, then the source plugin will be allowed
+          // to access endpoints that are protected with .htaccess.
+          htaccess_user: "kogutadmin",
+          htaccess_pass: "PP9l0GNIhqPWHCOIfrzT9ODU",
+          htaccess_sendImmediately: false,
+        }
+      },
+    },*/
+    'gatsby-plugin-netlify-identity-widget',
     "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 };

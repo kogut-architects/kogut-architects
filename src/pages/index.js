@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
-import Carousel from 'react-bootstrap/Carousel';
+import Slideshow from 'react-slidez';
+//import Carousel from 'react-bootstrap/Carousel';
 
 import Layout from "../components/Layout";
 import "../styles/home.scss";
@@ -14,31 +15,17 @@ export const HomePageTemplate = ({ home }) => {
       <section className="main-content">
         <div className="container">
           <div className="header-image-carousel"> 
-          <Carousel>
-  <Carousel.Item>
-    <div>Slide 1</div>
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <div>Slide 2</div>
-
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <div>Slide 3</div>
-
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
+          <Slideshow
+  showIndex
+  showArrows
+  autoplay
+  enableKeyboard
+  useDotIndex
+  slideInterval={5000}
+  defaultIndex={1}
+  effect={'fade'}
+  
+><div>Slide 2</div><div>Slide 2</div></Slideshow>
           </div>
         </div>
       </section>
