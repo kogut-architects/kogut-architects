@@ -7,14 +7,14 @@ import "../styles";
 import { Header } from '../components/Header'
 import { Footer } from "../components/Footer";
 
-const TemplateWrapper = ({ footerData = null, navbarData = null, children }) => (
+const TemplateWrapper = ({ footerData = null, headerData = null, children }) => (
   <div>
     <Helmet>
       <html lang="en" />
       <meta name="robots" content="noindex"></meta>
       <meta name="keywords" content="" /> 
     </Helmet>
-    <Header data={navbarData} />
+    <Header data={headerData} />
     <main>{children}</main>
     <Footer data={footerData} />
   </div>
@@ -36,7 +36,7 @@ export const query = graphql`
         }
       }
     }
-    navbarData: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "navbar" } } }) {
+    headerData: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "header" } } }) {
       edges {
         node {
           id

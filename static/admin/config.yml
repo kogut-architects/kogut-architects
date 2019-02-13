@@ -5,69 +5,58 @@ backend:
 media_folder: static/img
 public_folder: /img
 
-display_url: https://gatsby-netlify-cms-example.netlify.com/
+display_url: https://kogut-architects.netlify.com/
 
 collections:
-  - name: "meetups"
-    label: "Meetups"
-    description: "Meetup dates, location, and presenter information."
-    folder: "src/pages/meetups"
+  - name: "portfolio"
+    label: "Portfolio"
+    slug: "portfolio"
+    folder: "src/pages/portfolio"
     create: true
-    fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "meetup" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - {
-          label: Presenters,
-          name: presenters,
-          required: true,
-          widget: list,
-          fields:
-            [
-              { label: Name, name: name, required: true, widget: string },
-              {
-                label: Presentation Title,
-                name: presentationTitle,
-                required: false,
-                widget: string,
-              },
-              {
-                label: Image,
-                name: image,
-                required: false,
-                hint: "If an image isn't specified, a default headshot placeholder image will be used",
-                widget: image,
-              },
-              { label: Text, name: text, required: true, widget: text },
-              {
-                label: Links,
-                name: links,
-                required: false,
-                widget: list,
-                fields:
-                  [
-                    { label: Text, name: linkText, widget: string },
-                    { label: URL, name: linkURL, widget: string },
-                  ],
-              },
-            ],
-        }
-      - {
-          label: "Location",
-          name: "location",
-          required: true,
-          widget: "object",
-          fields:
-            [
-              { label: "Name", name: "name", widget: "string" },
-              { label: "Google Maps Link", name: "mapsLink", widget: "string" },
-              { label: "Latitude", name: "mapsLatitude", widget: "number", valueType: "float" },
-              { label: "Longitude", name: "mapsLongitude", widget: "number", valueType: "float" },
-            ],
-        }
+    extension: "md"
+    identifier_field: "title"
+    fields: 
+      - label: "Title"
+        name: "title"
+        widget: "string"
   - name: "pages"
     label: "Pages"
     files:
+      - file: "src/pages/portfolio/index.md"
+        label: "Portfolio"
+        name: "portfolio"
+        widget: "object"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
+          - { label: "Title", name: "Title", widget: "string" }
+          - {
+              label: "Type",
+              name: "type",
+              widget: "list",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  { 
+                    label: "Name", 
+                    name: "name", 
+                    widget: "list",
+                    fields: [
+                      { label: "Title", name: "title", widget: "string" }
+                    ]
+                  },
+                ],
+            }
+          - {
+              label: "SEO & Meta",
+              name: "seo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
@@ -116,29 +105,6 @@ collections:
                   },
                 ],
             }
-          - {
-              label: "SEO & Meta",
-              name: "seo",
-              widget: "object",
-              fields:
-                [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
-                ],
-            }
-      - file: "src/pages/pastMeetups/index.md"
-        label: "Past Meetups"
-        name: "pastMeetups"
-        fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "past-meetups-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
           - {
               label: "SEO & Meta",
               name: "seo",
@@ -235,14 +201,14 @@ collections:
                   { label: "Description", name: "description", widget: "string" },
                 ],
             }
-  - name: "navbarAndFooter"
-    label: "Navbar & Footer"
+  - name: "headerAndFooter"
+    label: "Header & Footer"
     files:
-      - file: "src/pages/navbar/index.md"
-        label: "Navbar"
-        name: "navbar"
+      - file: "src/pages/header/index.md"
+        label: "Header"
+        name: "header"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "navbar" }
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "header" }
           - {
               label: "Menu Items",
               name: "menuItems",
@@ -268,17 +234,5 @@ collections:
                   { label: "Image", name: "image", widget: "image" },
                   { label: "Image Description", name: "imageAlt", widget: "string" },
                   { label: "Tagline", name: "tagline", widget: "string" },
-                ],
-            }
-          - {
-              label: "Social Links",
-              name: "socialLinks",
-              widget: "list",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                  { label: "Label", name: "label", widget: "string" },
-                  { label: "Link URL", name: "linkURL", widget: "string" },
                 ],
             }

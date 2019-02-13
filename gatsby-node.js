@@ -28,9 +28,9 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    // Filter out the footer, navbar, and meetups so we don't create pages for those
+    // Filter out the footer, header, and meetups so we don't create pages for those
     const postOrPage = result.data.allMarkdownRemark.edges.filter(edge => {
-      if (edge.node.frontmatter.templateKey === "navbar") {
+      if (edge.node.frontmatter.templateKey === "header") {
         return false;
       } else if (edge.node.frontmatter.templateKey === "footer") {
         return false;
