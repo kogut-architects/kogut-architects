@@ -1,11 +1,16 @@
 ---
 templateKey: portfolio-page
-title: Portfolio
+Title: Portfolio
+type:
+  - name:
+      - title: Commercial 1
+    title: Commercial
+  - name:
+      - title: Residential 1
+    title: Residential
 seo:
-  browserTitle: Kogut Architects
-  description: >-
-    JavaScript meetup group in Wakanda where JavaScript developers get together
-    for presentations and to meet others in the community.
-  title: Kogut Architects
+  browserTitle: Kogut Architects | Portfolio
+  description: Kogut Architects Portfolio
+  title: Kogut Architects | Portfolio
 ---
 
