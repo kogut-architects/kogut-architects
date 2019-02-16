@@ -8,7 +8,7 @@ export const HeaderTemplate = ({ data }) => (
   <header className="header">
     <div className="header-inner">
       <div className="header-bottom container">
-        <a>
+        <a href="/">
           <img src={logo}></img>
         </a>
       </div>

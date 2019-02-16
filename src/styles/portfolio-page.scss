@@ -1,0 +1,31 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.portfolio {
+  &-type {
+    text-transform: uppercase; 
+  }
+  &-jobs {
+    margin-left: 25px;
+  }
+  &-jobs.hidden {
+    display: none;
+  }
+  &-jobs.hidden, .open {
+    max-height: 0px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  &-jobs.open {
+    max-height: 250px;
+    opacity: 1;
+  }
+}
+.portfolio a {
+  cursor: pointer;
+  transition: .5s;
+}
+a:hover {
+  text-decoration: none;
+  color: #b7b7b7 !important;
+}

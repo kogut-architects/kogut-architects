@@ -15,7 +15,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     fields: 
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-type" }
       - { label: "Portfolio Type", name: "title", widget: "string" }
       - { 
           label: "Jobs", 

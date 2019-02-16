@@ -1,5 +1,5 @@
 ---
-templateKey: portfolio-page
+templateKey: portfolio-type
 title: Residential
 jobs:
   - jobName: Job 1

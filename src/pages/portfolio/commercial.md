@@ -1,5 +1,5 @@
 ---
-templateKey: portfolio-page
+templateKey: portfolio-type
 title: Commercial
 jobs:
   - jobName: Job 1

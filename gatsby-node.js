@@ -34,8 +34,10 @@ exports.createPages = ({ actions, graphql }) => {
         return false;
       } else if (edge.node.frontmatter.templateKey === "footer") {
         return false;
+      } else if (edge.node.frontmatter.templateKey === "portfolio-type") {
+        return false;
       } else {
-        return !Boolean(edge.node.fields.slug.match(/^\/portfolio\/\/.*$/));
+        return true;
       }
     });
 

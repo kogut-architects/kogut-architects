@@ -15,7 +15,7 @@ const TemplateWrapper = ({ footerData = null, headerData = null, children }) => 
       <meta name="keywords" content="" /> 
     </Helmet>
     <Header data={headerData} />
-    <main>{children}</main>
+    <main className="container">{children}</main>
     <Footer data={footerData} />
   </div>
 );
@@ -50,7 +50,7 @@ export const query = graphql`
         }
       }
     }
-    portfolioTypes: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "portfolio-page"}}}) {
+    portfolioTypes: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "portfolio-type"}}}) {
       edges {
         node {
           id

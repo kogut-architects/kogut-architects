@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import ReactMarkdown from "react-markdown";
@@ -6,27 +6,44 @@ import Helmet from "react-helmet";
 
 import Layout from "../components/Layout";
 import HTMLContent from "../components/Content";
-import "../styles/about-page.scss";
+import "../styles/portfolio-page.scss";
+import { renderComponent } from "recompose";
 
-export const PortfolioPageTemplate = props => {
-  const { page } = props;
+export class PortfolioPageTemplate extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="portfolio">
-      <ul className="portfolio-type">
-            {page.portfolioTypes.edges.map((edge, index) => (
-              <li key={index} className="portfolio-list-item">
-                {edge.node.frontmatter.title}
-                <ul key={index} className="job-list-item">
-                  {edge.node.frontmatter.jobs.map((job, index) => (
-                    <li key={index}>{job.jobName}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-    </div>
-  );
+    this.state = { selectedPortfolioType: '' }
+    this.handlePortfolioTypeClick = this.handlePortfolioTypeClick.bind(this);
+  }
+
+  handlePortfolioTypeClick(type) {
+    console.log(type);
+    this.setState({
+      selectedPortfolioType: type,
+    });
+  }
+
+  render() {
+    const { page } = this.props;
+
+    return (
+      <div className="portfolio">
+        <dd className="portfolio-type">
+          {page.portfolioTypes.edges.map((edge, index) => (
+            <dl key={index} className="portfolio-list-item">
+              <dt><div><a onClick={() => this.handlePortfolioTypeClick(edge.node.frontmatter.title)}>{edge.node.frontmatter.title}</a></div></dt>
+              <div></div>
+              {edge.node.frontmatter.jobs.map((job, index) => (
+                  <dd key={index} className={this.state.selectedPortfolioType === edge.node.frontmatter.title ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>{job.jobName}</dd>
+                ))}
+              
+            </dl>
+          ))}
+        </dd>
+      </div>
+    );
+  }
 };
 
 const PortfolioPage = ({ data }) => {
