@@ -15,7 +15,7 @@ const TemplateWrapper = ({ footerData = null, headerData = null, children }) => 
       <meta name="keywords" content="" /> 
     </Helmet>
     <Header data={headerData} />
-    <main className="container">{children}</main>
+    <main className="container main-content">{children}</main>
     <Footer data={footerData} />
   </div>
 );
