@@ -8,44 +8,43 @@ public_folder: /img
 display_url: https://kogut-architects.netlify.com/
 
 collections:
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "src/pages/portfolio"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields: 
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
+      - { label: "Portfolio Type", name: "title", widget: "string" }
+      - { 
+          label: "Jobs", 
+          name: "jobs", 
+          widget: "list", 
+          fields: [
+            { label: "Job Name", name: "jobName", widget: "string" }
+          ]
+        }
+      - {
+            label: "SEO & Meta",
+            name: "seo",
+            widget: "object",
+            fields:
+              [
+                { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Description", name: "description", widget: "string" },
+              ],
+          }
   - name: "pages"
     label: "Pages"
     files:
       - file: "src/pages/portfolio/index.md"
         label: "Portfolio"
         name: "portfolio"
-        widget: "object"
-        fields:
+        fields: 
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
-          - { label: "Title", name: "Title", widget: "string" }
-          - {
-              label: "Type",
-              name: "type",
-              widget: "list",
-              fields:
-                [
-                  { label: "Title", name: "title", widget: "string" },
-                  { 
-                    label: "Name", 
-                    name: "name", 
-                    widget: "list",
-                    fields: [
-                      { label: "Title", name: "title", widget: "string" }
-                    ]
-                  },
-                ],
-            }
-          - {
-              label: "SEO & Meta",
-              name: "seo",
-              widget: "object",
-              fields:
-                [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
-                ],
-            }
+          - { label: "Title", name: "title", widget: "string" }
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"

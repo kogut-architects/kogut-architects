@@ -13,13 +13,24 @@ export const PortfolioPageTemplate = props => {
 
   return (
     <div className="portfolio">
-      
+      <ul className="portfolio-type">
+            {page.portfolioTypes.edges.map((edge, index) => (
+              <li key={index} className="portfolio-list-item">
+                {edge.node.frontmatter.title}
+                <ul key={index} className="job-list-item">
+                  {edge.node.frontmatter.jobs.map((job, index) => (
+                    <li key={index}>{job.jobName}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
     </div>
   );
 };
 
 const PortfolioPage = ({ data }) => {
-  const { markdownRemark: page, footerData, navbarData } = data;
+  const { markdownRemark: page, footerData, headerData, portfolioTypes } = data;
   const {
     frontmatter: {
       seo: { title: seoTitle, description: seoDescription, browserTitle },
@@ -27,13 +38,13 @@ const PortfolioPage = ({ data }) => {
   } = page;
 
   return (
-    <Layout footerData={footerData} navbarData={navbarData}>
+    <Layout footerData={footerData} headerData={headerData}>
       <Helmet>
         <meta name="title" content={seoTitle} />
         <meta name="description" content={seoDescription} />
         <title>{browserTitle}</title>
       </Helmet>
-      <PortfolioPageTemplate page={{ ...page, bodyIsMarkdown: false }} />
+      <PortfolioPageTemplate page={{ ...page, portfolioTypes: portfolioTypes, bodyIsMarkdown: false }} />
     </Layout>
   );
 };
@@ -49,24 +60,7 @@ export const porfolioPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        title
-        mainImage {
-          image
-          imageAlt
-        }
-        gallery {
-          image
-          imageAlt
-        }
-        developerGroups
-        organizers {
-          title
-          gallery {
-            image
-            imageAlt
-            name
-          }
-        }
+        title 
         seo {
           browserTitle
           title

@@ -50,6 +50,22 @@ export const query = graphql`
         }
       }
     }
+    portfolioTypes: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "portfolio-page"}}}) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            templateKey
+            developerGroups
+            _PARENT
+            jobs {
+              jobName
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
