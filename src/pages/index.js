@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
-import Slideshow from 'react-slidez';
+//import Slideshow from 'react-slidez';
 //import Carousel from 'react-bootstrap/Carousel';
 
 import Layout from "../components/Layout";
