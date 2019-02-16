@@ -7,7 +7,7 @@ import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import HTMLContent from "../components/Content";
 import "../styles/portfolio-page.scss";
-import { renderComponent } from "recompose";
+//import { renderComponent } from "recompose";
 
 export class PortfolioPageTemplate extends Component {
   constructor(props) {
