@@ -8,17 +8,6 @@ public_folder: /img
 display_url: https://kogut-architects.netlify.com/
 
 collections:
-  - name: "portfolio"
-    label: "Portfolio"
-    slug: "portfolio"
-    folder: "src/pages/portfolio"
-    create: true
-    extension: "md"
-    identifier_field: "title"
-    fields: 
-      - label: "Title"
-        name: "title"
-        widget: "string"
   - name: "pages"
     label: "Pages"
     files:

@@ -15,17 +15,7 @@ export const HomePageTemplate = ({ home }) => {
       <section className="main-content">
         <div className="container">
           <div className="header-image-carousel"> 
-          <Slideshow
-  showIndex
-  showArrows
-  autoplay
-  enableKeyboard
-  useDotIndex
-  slideInterval={5000}
-  defaultIndex={1}
-  effect={'fade'}
-  
-><div>Slide 2</div><div>Slide 2</div></Slideshow>
+          
           </div>
         </div>
       </section>
