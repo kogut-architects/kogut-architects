@@ -34,6 +34,16 @@ employees:
 
             #### Tau Sigma Delta Honor Society
           title: 'Biography:'
+        - details: |-
+            #### Joe Mayer Architects
+            #### Annapolis, Maryland 1999-2003
+          title: Architectural Designer
+        - details: |-
+            #### Kogut Architects LLC
+            #### 2003-present
+          title: Project Architect
+        - details: '#### Maryland, Virginia, Washington D.C.'
+          title: Licenses
     name: 'Sarah Kogut, AIA'
 seo:
   browserTitle: About | JavaScript Wakanda
