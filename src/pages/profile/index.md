@@ -1,6 +1,14 @@
 ---
 templateKey: profile-page
-title: Wakanda JavaScript Developer Meetup
+employees:
+  - details:
+      details:
+        - details: |-
+            # Graduated from University of Maryland
+
+            ## Bachelor of Science in Architecture, 1985
+          title: 'Biography:'
+    name: 'Michael Kogut, AIA'
 seo:
   browserTitle: About | JavaScript Wakanda
   description: >-
@@ -9,6 +17,4 @@ seo:
     the community.
   title: About | JS Wakanda
 ---
-## Sharing Ideas and Meeting Others
 
-JS Wakanda is a user group run by volunteers. We meet in borrowed spaces, graciously provided by different companies and organisations. Our purpose is to provide a place where our members have a good time talking about programming, sharing their knowledge and meeting other passionate folks. We keep it friendly, inclusive and positive.
