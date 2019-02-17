@@ -8,6 +8,20 @@ employees:
 
             #### Bachelor of Science in Architecture, 1985
           title: 'Biography:'
+        - details: |-
+            #### DBI/Catterton-Storm Architects
+            #### Washington D.C., 1985-87
+          title: Architectural Designer
+        - details: |-
+            #### Karmosky Architects
+            #### Severna Park, Maryland, 1987-2002
+          title: Project Architect
+        - details: |-
+            #### Kogut Architects LLC
+            #### 2002-present
+          title: Principal
+        - details: '#### Maryland'
+          title: Licenses
     name: 'Michael Kogut, AIA'
   - info:
       detailType:
