@@ -4,21 +4,21 @@ employees:
   - info:
       detailType:
         - details: |-
-            # Graduated from University of Maryland
+            ### Graduated from University of Maryland
 
-            ## Bachelor of Science in Architecture, 1985
+            #### Bachelor of Science in Architecture, 1985
           title: 'Biography:'
     name: 'Michael Kogut, AIA'
   - info:
       detailType:
         - details: |-
-            # Graduated from Tulane University
+            ### Graduated from Tulane University
 
-            ## Bachelor of Science in Architecture, 1999
+            #### Bachelor of Science in Architecture, 1999
 
-            ## Master in Architecture, 1999
+            #### Master in Architecture, 1999
 
-            ## Tau Sigma Delta Honor Society
+            #### Tau Sigma Delta Honor Society
           title: 'Biography:'
     name: 'Sarah Kogut, AIA'
 seo:
