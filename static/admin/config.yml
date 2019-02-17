@@ -14,6 +14,7 @@ collections:
     create: true
     slug: "{{slug}}"
     extension: "md"
+    delete: false
     fields: 
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-type" }
       - { label: "Portfolio Type", name: "title", widget: "string" }
@@ -43,7 +44,6 @@ collections:
       - file: "src/pages/portfolio/index.md"
         label: "Portfolio"
         name: "portfolio"
-        delete: false
         fields: 
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
           - { label: "Title", name: "title", widget: "string" }
@@ -51,7 +51,6 @@ collections:
       - file: "src/pages/profile/index.md"
         label: "Firm Profile"
         name: "profile"
-        delete: false
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "profile-page" }
           - { 
