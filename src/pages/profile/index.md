@@ -9,6 +9,7 @@ employees:
             ## Bachelor of Science in Architecture, 1985
           title: 'Biography:'
     name: 'Michael Kogut, AIA'
+  - name: 'Sarah Kogut, AIA'
 seo:
   browserTitle: About | JavaScript Wakanda
   description: >-
