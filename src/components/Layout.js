@@ -60,7 +60,6 @@ export const query = graphql`
           frontmatter {
             title
             templateKey
-            developerGroups
             jobs {
               jobName
             }

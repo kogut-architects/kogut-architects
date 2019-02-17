@@ -53,7 +53,7 @@ export class PortfolioPageTemplate extends Component {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=First slide&bg=373940"
+                    src="img/afhsb-01-1000x500.jpg"
                     alt="First slide"
                   />
                   <Carousel.Caption>
@@ -64,7 +64,7 @@ export class PortfolioPageTemplate extends Component {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Second slide&bg=282c34"
+                    src="img/afhsb-01-1000x500.jpg"
                     alt="Third slide"
                   />
 
@@ -76,7 +76,7 @@ export class PortfolioPageTemplate extends Component {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=20232a"
+                    src="img/afhsb-01-1000x500.jpg"
                     alt="Third slide"
                   />
 

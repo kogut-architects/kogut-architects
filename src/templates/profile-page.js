@@ -8,7 +8,7 @@ import Layout from "../components/Layout";
 import HTMLContent from "../components/Content";
 import "../styles/about-page.scss";
 
-export const AboutPageTemplate = props => {
+export const ProfilePageTemplate = props => {
   const { page } = props;
 
   return (
@@ -65,7 +65,7 @@ export const AboutPageTemplate = props => {
   );
 };
 
-const AboutPage = ({ data }) => {
+const ProfilePage = ({ data }) => {
   const { markdownRemark: page, footerData, navbarData } = data;
   const {
     frontmatter: {
@@ -80,40 +80,23 @@ const AboutPage = ({ data }) => {
         <meta name="description" content={seoDescription} />
         <title>{browserTitle}</title>
       </Helmet>
-      <AboutPageTemplate page={{ ...page, bodyIsMarkdown: false }} />
+      <ProfilePageTemplate page={{ ...page, bodyIsMarkdown: false }} />
     </Layout>
   );
 };
 
-AboutPage.propTypes = {
+ProfilePage.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default AboutPage;
+export default ProfilePage;
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const profilePageQuery = graphql`
+  query ProfilePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
-        mainImage {
-          image
-          imageAlt
-        }
-        gallery {
-          image
-          imageAlt
-        }
-        developerGroups
-        organizers {
-          title
-          gallery {
-            image
-            imageAlt
-            name
-          }
-        }
         seo {
           browserTitle
           title

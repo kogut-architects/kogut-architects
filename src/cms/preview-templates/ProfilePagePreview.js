@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { AboutPageTemplate } from "../../templates/about-page";
+import { ProfilePageTemplate } from "../../templates/profile-page";
 
-const AboutPagePreview = ({ entry, widgetFor }) => (
-  <AboutPageTemplate
+const ProfilePagePreview = ({ entry, widgetFor }) => (
+  <ProfilePageTemplate
     page={{
       frontmatter: entry.getIn(["data"]).toJS(),
       html: entry.getIn(["data", "body"]),
@@ -12,11 +12,11 @@ const AboutPagePreview = ({ entry, widgetFor }) => (
   />
 );
 
-AboutPagePreview.propTypes = {
+ProfilePagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 };
 
-export default AboutPagePreview;
+export default ProfilePagePreview;

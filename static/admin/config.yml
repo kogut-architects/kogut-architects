@@ -45,54 +45,13 @@ collections:
         fields: 
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
           - { label: "Title", name: "title", widget: "string" }
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
+      - file: "src/pages/profile/index.md"
+        label: "Firm Profile"
+        name: "profile"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "profile-page" }
           - { label: "Title", name: "title", widget: "string" }
-          - {
-              label: "Main Image",
-              name: "mainImage",
-              widget: "object",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                ],
-            }
           - { label: "Body", name: "body", widget: "markdown" }
-          - {
-              label: "Image Gallery",
-              name: "gallery",
-              widget: "list",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                ],
-            }
-          - { label: "Developer Groups", name: "developerGroups", widget: "markdown" }
-          - {
-              label: "Meetup Organizers",
-              name: "organizers",
-              widget: "object",
-              fields:
-                [
-                  { label: "Title", name: "title", widget: "string" },
-                  {
-                    label: "Images",
-                    name: "gallery",
-                    widget: "list",
-                    fields:
-                      [
-                        { label: "Name", name: "name", widget: "string" },
-                        { label: "Image", name: "image", widget: "image" },
-                        { label: "Image Description", name: "imageAlt", widget: "string" },
-                      ],
-                  },
-                ],
-            }
           - {
               label: "SEO & Meta",
               name: "seo",
