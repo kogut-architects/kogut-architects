@@ -1,8 +1,8 @@
 ---
 templateKey: profile-page
 employees:
-  - details:
-      details:
+  - info:
+      detailType:
         - details: |-
             # Graduated from University of Maryland
 
