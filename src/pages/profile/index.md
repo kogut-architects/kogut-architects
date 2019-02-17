@@ -9,7 +9,18 @@ employees:
             ## Bachelor of Science in Architecture, 1985
           title: 'Biography:'
     name: 'Michael Kogut, AIA'
-  - name: 'Sarah Kogut, AIA'
+  - info:
+      detailType:
+        - details: |-
+            # Graduated from Tulane University
+
+            ## Bachelor of Science in Architecture, 1999
+
+            ## Master in Architecture, 1999
+
+            ## Tau Sigma Delta Honor Society
+          title: 'Biography:'
+    name: 'Sarah Kogut, AIA'
 seo:
   browserTitle: About | JavaScript Wakanda
   description: >-
