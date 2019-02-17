@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
+import Container from 'react-bootstrap/Container';
 
 import "../styles";
 //import { Navbar } from "../components/Navbar";
@@ -15,7 +16,9 @@ const TemplateWrapper = ({ footerData = null, headerData = null, children }) => 
       <meta name="keywords" content="" /> 
     </Helmet>
     <Header data={headerData} />
-    <main className="container main-content">{children}</main>
+    <main className="main-content">
+      <Container fluid={true}>{children}</Container>
+    </main>
     <Footer data={footerData} />
   </div>
 );
@@ -58,7 +61,6 @@ export const query = graphql`
             title
             templateKey
             developerGroups
-            _PARENT
             jobs {
               jobName
             }

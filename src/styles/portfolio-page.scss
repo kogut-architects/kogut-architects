@@ -7,6 +7,8 @@
   }
   &-jobs {
     margin-left: 25px;
+    font-size: 0.9rem;
+    padding-top: 5px;
   }
   &-jobs.hidden {
     display: none;
@@ -20,12 +22,32 @@
     max-height: 250px;
     opacity: 1;
   }
+  dt, dd {
+    font-weight: 300;
+  }
+  dt {
+    padding-top: 5px;
+  }
+  dt::after {
+    content: '';
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+    display: block;
+  }
+  dd.portfolio-jobs::after {
+    content: '';
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+    display: block;
+  }
+  
+  a {
+    cursor: pointer;
+    transition: .5s;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #b7b7b7 !important;
+  }
 }
-.portfolio a {
-  cursor: pointer;
-  transition: .5s;
-}
-a:hover {
-  text-decoration: none;
-  color: #b7b7b7 !important;
-}
+
