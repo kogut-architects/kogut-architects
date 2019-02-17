@@ -39,19 +39,45 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      # *********************************** Portfolio ***********************************
       - file: "src/pages/portfolio/index.md"
         label: "Portfolio"
         name: "portfolio"
+        delete: false
         fields: 
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
           - { label: "Title", name: "title", widget: "string" }
+      # *********************************** Profile ***********************************
       - file: "src/pages/profile/index.md"
         label: "Firm Profile"
         name: "profile"
+        delete: false
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "profile-page" }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { 
+              label: "Employees", 
+              name: "employees", 
+              widget: "list",
+              fields: [
+                { label: "Name", name: "name", widget: "string" },
+                { 
+                  label: "Info", 
+                  name: "info", 
+                  widget: "object",
+                  fields: [
+                    { 
+                      label: "Detail Type", 
+                      name: "detailType", 
+                      widget: "list",
+                      fields: [
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Details", name: "details", widget: "markdown" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           - {
               label: "SEO & Meta",
               name: "seo",
