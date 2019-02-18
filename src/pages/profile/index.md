@@ -7,7 +7,7 @@ employees:
             #### Graduated from University of Maryland
 
             #### Bachelor of Science in Architecture, 1985
-          title: 'Biography:'
+          title: Biography
         - details: |-
             #### DBI/Catterton-Storm Architects
             #### Washington D.C., 1985-87
@@ -33,7 +33,7 @@ employees:
             #### Master in Architecture, 1999
 
             #### Tau Sigma Delta Honor Society
-          title: 'Biography:'
+          title: Biography
         - details: |-
             #### Joe Mayer Architects
             #### Annapolis, Maryland 1999-2003
@@ -46,8 +46,8 @@ employees:
           title: Licenses
     name: 'Sarah Kogut, AIA'
 seo:
-  browserTitle: Firm Profile | Kogut Architects
-  description: Firm Profile | Kogut Architects
-  title: Firm Profile | Kogut Architects
+  browserTitle: Kogut • Architects • LLC | Firm Profile
+  description: 'Profile of Michael and Sarah Kogut, founders of Kogut Architects.'
+  title: Kogut • Architects • LLC | Firm Profile
 ---
 
