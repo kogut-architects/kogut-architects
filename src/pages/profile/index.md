@@ -46,11 +46,8 @@ employees:
           title: Licenses
     name: 'Sarah Kogut, AIA'
 seo:
-  browserTitle: About | JavaScript Wakanda
-  description: >-
-    JavaScript Wakanda is a meetup group that holds monthly meetups where
-    JavaScript developers get together for presentations and to meet others in
-    the community.
-  title: About | JS Wakanda
+  browserTitle: Firm Profile | Kogut Architects
+  description: Firm Profile | Kogut Architects
+  title: Firm Profile | Kogut Architects
 ---
 
