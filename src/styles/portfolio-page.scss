@@ -22,6 +22,10 @@
     max-height: 250px;
     opacity: 1;
   }
+  &-job-selected {
+    font-style: italic;
+    font-weight: 600;
+  }
   dt, dd {
     font-weight: 300;
   }
