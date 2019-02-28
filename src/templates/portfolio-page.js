@@ -54,7 +54,7 @@ export class PortfolioPageTemplate extends Component {
                       <dd key={index} 
                         className={this.state.selectedPortfolioType === portfolioType.name ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
                         <a className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
-                          onClick={() => this.handleJobNameClick(job)}>{job.name}</a>
+                          onClick={() => this.handleJobNameClick(job)}><span>{job.name}</span></a>
                       </dd>
                     ))}
                 </dl>
