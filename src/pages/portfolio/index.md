@@ -140,6 +140,19 @@ portfolioTypes:
           - 'https://ucarecdn.com/8fcf20ff-7063-4a92-8b47-ddad07294d07~3/nth/2/'
         name: Lockheed Martin
     name: Interiors
+  - jobs:
+      - imageGallery:
+          - 'https://ucarecdn.com/af14acf2-ad4c-45b9-ae67-efa06091d8e7~1/nth/0/'
+        name: Lighthouse Square
+      - imageGallery:
+          - 'https://ucarecdn.com/b8f311e2-909a-451a-beed-af2ae820cc18~6/nth/0/'
+          - 'https://ucarecdn.com/b8f311e2-909a-451a-beed-af2ae820cc18~6/nth/1/'
+          - 'https://ucarecdn.com/b8f311e2-909a-451a-beed-af2ae820cc18~6/nth/2/'
+          - 'https://ucarecdn.com/b8f311e2-909a-451a-beed-af2ae820cc18~6/nth/3/'
+          - 'https://ucarecdn.com/b8f311e2-909a-451a-beed-af2ae820cc18~6/nth/4/'
+          - 'https://ucarecdn.com/b8f311e2-909a-451a-beed-af2ae820cc18~6/nth/5/'
+        name: Vandever Residence
+    name: On the Boards
 seo:
   browserTitle: Portfolio
   description: Portfolio
