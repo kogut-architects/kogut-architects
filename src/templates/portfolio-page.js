@@ -16,15 +16,26 @@ export class PortfolioPageTemplate extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { selectedPortfolioType: '' }
+    this.state = { 
+      selectedPortfolioType: '', 
+      selectedJob: {
+        imageGallery: []
+      } 
+    }
     this.handlePortfolioTypeClick = this.handlePortfolioTypeClick.bind(this);
+    this.handleJobNameClick = this.handleJobNameClick.bind(this);
   }
 
   handlePortfolioTypeClick(type) {
-    console.log(type);
+    console.log('Portofolio Type:', type);
     this.setState({
       selectedPortfolioType: type,
     });
+  }
+
+  handleJobNameClick(job) {
+    console.log('Job Name:', job);
+    this.setState({ selectedJob: job});
   }
 
   render() {
@@ -35,14 +46,16 @@ export class PortfolioPageTemplate extends Component {
         <Row>
           <Col md={2}>
             <dd className="portfolio-type">
-              {page.portfolioTypes.edges.map((edge, index) => (
+              {page.frontmatter.portfolioTypes.map((portfolioType, index) => (
                 <dl key={index} className="portfolio-list-item">
-                  <dt><a onClick={() => this.handlePortfolioTypeClick(edge.node.frontmatter.title)}>{edge.node.frontmatter.title}</a></dt>
+                  <dt><a onClick={() => this.handlePortfolioTypeClick(portfolioType.name)}>{portfolioType.name}</a></dt>
                   <div></div>
-                  {edge.node.frontmatter.jobs.map((job, index) => (
-                      <dd key={index} className={this.state.selectedPortfolioType === edge.node.frontmatter.title ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>{job.jobName}</dd>
+                  {portfolioType.jobs.map((job, index) => (
+                      <dd key={index} 
+                        className={this.state.selectedPortfolioType === portfolioType.name ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
+                        <a onClick={() => this.handleJobNameClick(job)}>{job.name}</a>
+                      </dd>
                     ))}
-                  
                 </dl>
               ))}
             </dd>
@@ -50,41 +63,11 @@ export class PortfolioPageTemplate extends Component {
           <Col>
             <Container fluid="true">
               <Carousel>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="/img/afhsb-01-1000x500.jpg"
-                    alt="First slide"
-                  />
-                  <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="/img/afhsb-01-1000x500.jpg"
-                    alt="Third slide"
-                  />
-
-                  <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="/img/afhsb-01-1000x500.jpg"
-                    alt="Third slide"
-                  />
-
-                  <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
+                {this.state.selectedJob.imageGallery.map((url, index) => (
+                  <Carousel.Item key={index}>
+                    <img src={url} />
+                  </Carousel.Item>
+                ))}
               </Carousel>
             </Container>
           </Col>
@@ -127,6 +110,13 @@ export const porfolioPageQuery = graphql`
       html
       frontmatter {
         title 
+        portfolioTypes {
+          name 
+          jobs {
+            name
+            imageGallery
+          }
+        }
         seo {
           browserTitle
           title

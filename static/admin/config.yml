@@ -3,40 +3,17 @@ backend:
   branch: master
 
 media_folder: static/img
+
+media_library:
+  name: uploadcare
+  config:
+    publicKey: 0cd18d006f13d506a0c4
+
 public_folder: /img
 
 display_url: https://kogut-architects.netlify.com/
 
 collections:
-  - name: "portfolio"
-    label: "Portfolio"
-    folder: "src/pages/portfolio"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    delete: false
-    fields: 
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-type" }
-      - { label: "Portfolio Type", name: "title", widget: "string" }
-      - { 
-          label: "Jobs", 
-          name: "jobs", 
-          widget: "list", 
-          fields: [
-            { label: "Job Name", name: "jobName", widget: "string" }
-          ]
-        }
-      - {
-            label: "SEO & Meta",
-            name: "seo",
-            widget: "object",
-            fields:
-              [
-                { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                { label: "Title", name: "title", widget: "string" },
-                { label: "Description", name: "description", widget: "string" },
-              ],
-          }
   - name: "pages"
     label: "Pages"
     files:
@@ -46,7 +23,43 @@ collections:
         name: "portfolio"
         fields: 
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
-          - { label: "Title", name: "title", widget: "string" }
+          - { 
+              label: "Portfolio Types", 
+              name: "portfolioTypes", 
+              widget: "list",
+              fields: [
+                { label: "Name", name: "name", widget: "string" },
+                {
+                  label: "Jobs",
+                  name: "jobs",
+                  widget: "list",
+                  fields: [
+                    { label: "Name", name: "name", widget: "string" },
+                    { 
+                      label: "Image Gallery", 
+                      name: "imageGallery", 
+                      widget: "image",
+                      media_library: {
+                        config: { 
+                          multiple: true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          - {
+              label: "SEO & Meta",
+              name: "seo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
       # *********************************** Profile ***********************************
       - file: "src/pages/profile/index.md"
         label: "Firm Profile"

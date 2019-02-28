@@ -53,15 +53,18 @@ export const query = graphql`
         }
       }
     }
-    portfolioTypes: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "portfolio-type"}}}) {
+    portfolioTypes: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "portfolio-page"}}}) {
       edges {
         node {
           id
           frontmatter {
             title
             templateKey
-            jobs {
-              jobName
+            portfolioTypes {
+              name
+              jobs {
+                name
+              }
             }
           }
         }
