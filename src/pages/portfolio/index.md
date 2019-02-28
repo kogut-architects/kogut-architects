@@ -93,6 +93,52 @@ portfolioTypes:
           - 'https://ucarecdn.com/6f7dee82-f82a-4255-9b2d-6ac8e8e06eed~8/nth/6/'
           - 'https://ucarecdn.com/6f7dee82-f82a-4255-9b2d-6ac8e8e06eed~8/nth/7/'
         name: Style Lounge
+      - imageGallery:
+          - 'https://ucarecdn.com/2d0a6228-785a-4b88-858d-4db72fae4563~4/nth/0/'
+          - 'https://ucarecdn.com/2d0a6228-785a-4b88-858d-4db72fae4563~4/nth/1/'
+          - 'https://ucarecdn.com/2d0a6228-785a-4b88-858d-4db72fae4563~4/nth/2/'
+          - 'https://ucarecdn.com/2d0a6228-785a-4b88-858d-4db72fae4563~4/nth/3/'
+        name: Harper's Farm Lobby Renovation
+      - imageGallery:
+          - 'https://ucarecdn.com/16d33aaf-8e77-4ac3-9531-d524bf1005ff~4/nth/0/'
+          - 'https://ucarecdn.com/16d33aaf-8e77-4ac3-9531-d524bf1005ff~4/nth/1/'
+          - 'https://ucarecdn.com/16d33aaf-8e77-4ac3-9531-d524bf1005ff~4/nth/2/'
+          - 'https://ucarecdn.com/16d33aaf-8e77-4ac3-9531-d524bf1005ff~4/nth/3/'
+        name: Annapolis Bank
+      - imageGallery:
+          - 'https://ucarecdn.com/81ebd9bc-da8d-4972-9bf7-ebef4ee765b5~2/nth/0/'
+          - 'https://ucarecdn.com/81ebd9bc-da8d-4972-9bf7-ebef4ee765b5~2/nth/1/'
+        name: Dynasplint
+      - imageGallery:
+          - 'https://ucarecdn.com/1b8dd9bd-db4c-45d9-a15d-a8f6c6dc7166~2/nth/0/'
+          - 'https://ucarecdn.com/1b8dd9bd-db4c-45d9-a15d-a8f6c6dc7166~2/nth/1/'
+        name: Ebersberger Associates
+      - imageGallery:
+          - 'https://ucarecdn.com/ecea2980-b851-424c-98e5-27706fb46f73~1/nth/0/'
+        name: Koons Ford
+      - imageGallery:
+          - 'https://ucarecdn.com/1f9c02ce-0ac8-4741-a2a6-3615bb8f5bde~5/nth/0/'
+          - 'https://ucarecdn.com/1f9c02ce-0ac8-4741-a2a6-3615bb8f5bde~5/nth/1/'
+          - 'https://ucarecdn.com/1f9c02ce-0ac8-4741-a2a6-3615bb8f5bde~5/nth/2/'
+          - 'https://ucarecdn.com/1f9c02ce-0ac8-4741-a2a6-3615bb8f5bde~5/nth/3/'
+          - 'https://ucarecdn.com/1f9c02ce-0ac8-4741-a2a6-3615bb8f5bde~5/nth/4/'
+        name: Elan Artists
+      - imageGallery:
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/0/'
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/1/'
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/2/'
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/3/'
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/4/'
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/5/'
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/6/'
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/7/'
+          - 'https://ucarecdn.com/dc161dd9-568f-46da-aeeb-e68836539cfa~9/nth/8/'
+        name: AFHSB
+      - imageGallery:
+          - 'https://ucarecdn.com/8fcf20ff-7063-4a92-8b47-ddad07294d07~3/nth/0/'
+          - 'https://ucarecdn.com/8fcf20ff-7063-4a92-8b47-ddad07294d07~3/nth/1/'
+          - 'https://ucarecdn.com/8fcf20ff-7063-4a92-8b47-ddad07294d07~3/nth/2/'
+        name: Lockheed Martin
     name: Interiors
 seo:
   browserTitle: Portfolio
