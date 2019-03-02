@@ -3,13 +3,18 @@
 
 .main-content {
   min-height: 350px;
+  @include respond-to("medium") {
+    flex-basis: 400px;
+  }
 }
-
+.home-container {
+    max-width: 1200px;
+  }
 .home-header {
   min-height: 200px;
 
   @include respond-to("medium") {
-    height: 575px;
+    height: 500px;
   }
   &-image-carousel {
     height: 250px;
@@ -28,6 +33,8 @@
       justify-content: space-around;
     }
   }
+
+ 
 
   &-image {
     height: 150px;

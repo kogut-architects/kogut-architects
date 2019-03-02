@@ -53,6 +53,16 @@ export const query = graphql`
         }
       }
     }
+    homeData: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "home-page" } } }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            imageGallery
+          }
+        }
+      }
+    }
     portfolioTypes: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "portfolio-page"}}}) {
       edges {
         node {

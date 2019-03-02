@@ -2,23 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
-//import Slideshow from 'react-slidez';
-//import Carousel from 'react-bootstrap/Carousel';
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ImageGallery from '../components/ImageGallery';
 import Layout from "../components/Layout";
 import "../styles/home.scss";
 
 export const HomePageTemplate = ({ home }) => {
-  
   return (
-    <>
-      <section className="main-content">
-        <div className="container">
-          <div className="header-image-carousel"> 
+    <>  
+    <Container className="home-container">
+      <Row>
+        <Col>
+            <Container fluid={true}>
+              <ImageGallery images={home.imageGallery} />
+          </Container>
           
-          </div>
-        </div>
-      </section>
+        </Col>
+      </Row>
+    </Container>
     </>
   );
 };
@@ -73,11 +76,7 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
-            title
-            headerImage {
-              image
-              imageAlt
-            }
+            imageGallery
             seo {
               browserTitle
               title

@@ -106,74 +106,15 @@ collections:
         name: "home"
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
-          - {
-              label: "Header Image",
-              name: "headerImage",
-              widget: "object",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                ],
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Upcoming Meetup Heading", name: "upcomingMeetupHeading", widget: "string" }
-          - { label: "No Upcoming Meetup Text", name: "noUpcomingMeetupText", hint: "This text will be displayed when there are no upcoming meetups", required: true, widget: "string" }
-          - { label: "Maps Note", name: "mapsNote", required: true, widget: "string" }
-          - {
-              label: "Call to Actions",
-              name: "callToActions",
-              required: true,
-              widget: "object",
-              fields:
-                [
-                  {
-                    label: "First CTA",
-                    name: "firstCTA",
-                    required: true,
-                    widget: "object",
-                    fields:
-                      [
-                        { label: "Heading", name: "heading", widget: "string" },
-                        { label: "Sub Heading", name: "subHeading", widget: "string" },
-                        {
-                          label: "Link Type",
-                          name: "linkType",
-                          widget: "select",
-                          options: ["internal", "external"],
-                        },
-                        {
-                          label: "Link URL",
-                          name: "linkURL",
-                          widget: "string",
-                          hint: "Use a relative URL (e.g. /about) if the link is an internal link.",
-                        }
-                      ]
-                  },
-                  {
-                    label: "Second CTA",
-                    name: "secondCTA",
-                    required: true,
-                    widget: "object",
-                    fields:
-                      [
-                        { label: "Heading", name: "heading", widget: "string" },
-                        { label: "Sub Heading", name: "subHeading", widget: "string" },
-                        {
-                          label: "Link Type",
-                          name: "linkType",
-                          widget: "select",
-                          options: ["internal", "external"],
-                        },
-                        {
-                          label: "Link URL",
-                          name: "linkURL",
-                          widget: "string",
-                          hint: "Use a relative URL (e.g. /about) if the link is an internal link.",
-                        }
-                      ]
-                  }
-                ],
+          - { 
+              label: "Image Gallery", 
+              name: "imageGallery", 
+              widget: "image",
+              media_library: {
+                config: { 
+                  multiple: true
+                }
+              }
             }
           - {
               label: "SEO & Meta",

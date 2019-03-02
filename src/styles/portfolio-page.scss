@@ -50,7 +50,7 @@
     transition: .5s;
     display: inline-block;
   }
-  a:hover {
+  a:hover:not(&-job-selected) {
     text-decoration: none;
     color: #b7b7b7 !important;
   }

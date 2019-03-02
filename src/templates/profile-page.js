@@ -13,7 +13,6 @@ import "../styles/profile-page.scss";
 
 export const ProfilePageTemplate = props => {
   const { page } = props;
-
   return (
     <Container className="profile">
       <Row className="profile-content">
@@ -34,7 +33,7 @@ export const ProfilePageTemplate = props => {
 };
 
 const ProfilePage = ({ data }) => {
-  const { markdownRemark: page, footerData, headerData } = data;
+  const { markdownRemark: page, footerData, headerData, homeData } = data;
   const {
     frontmatter: {
       seo: { title: seoTitle, description: seoDescription, browserTitle },
@@ -48,7 +47,7 @@ const ProfilePage = ({ data }) => {
         <meta name="description" content={seoDescription} />
         <title>{browserTitle}</title>
       </Helmet>
-      <ProfilePageTemplate page={{ ...page, bodyIsMarkdown: false }} />
+      <ProfilePageTemplate page={{ ...page, homeData: homeData, bodyIsMarkdown: false }} />
     </Layout>
   );
 };
