@@ -12,7 +12,7 @@ const ImageGallery = props => {
     <Carousel activeIndex={activeIndex} onSelect={(e) => setActiveIndex(e)}>
       {props.images.map((url, index) => (
         <Carousel.Item key={index} className="carousel-item">
-          <img src={url} />
+          <img src={url + '-/resize/1100x500/'} />
         </Carousel.Item>
       ))}
     </Carousel>

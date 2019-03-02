@@ -2,7 +2,6 @@
 @import "./mixins.scss";
 
 .main-content {
-  min-height: 350px;
   @include respond-to("medium") {
     flex-basis: 400px;
   }
