@@ -1,22 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-const ImageGallery = props => {
-  const [activeIndex, setActiveIndex] = useState(0);
+class ImageGallery extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeIndex: 0
+    };
+
+    this.handleOnSelect = this.handleOnSelect.bind(this);
+  }
+  handleOnSelect (e) {
+    this.setState({ activeIndex: e });
+  }
   // useEffect will be run when the list of images change thus we set the initial index of the images to the first one
-  useEffect(() => {
+  componentDidMount() {
     //console.log('useEffect');
-    setActiveIndex(0);
-  }, [props.images]);
-  return (
-    <Carousel activeIndex={activeIndex} onSelect={(e) => setActiveIndex(e)}>
-      {props.images.map((url, index) => (
-        <Carousel.Item key={index} className="carousel-item">
-          <img src={url + '-/resize/1100x500/'} />
-        </Carousel.Item>
-      ))}
-    </Carousel>
-  )
+    this.setState({ activeIndex: 0 });
+  }
+
+  render () {
+    return (
+      <Carousel activeIndex={this.state.activeIndex} onSelect={(e) => this.handleOnSelect(e)}>
+        {this.props.images.map((url, index) => (
+          <Carousel.Item key={index} className="carousel-item">
+            <img src={url + '-/resize/1100x500/'} />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    )
+  }
 }
 
 export default ImageGallery;

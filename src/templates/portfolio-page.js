@@ -81,7 +81,6 @@ export class PortfolioPageTemplate extends Component {
 };
 
 const PortfolioPage = ({ data }) => {
-  console.log({ data });
   const { markdownRemark: page, footerData, headerData, homeData, portfolioTypes } = data;
   const {
     frontmatter: {
@@ -107,7 +106,7 @@ PortfolioPage.propTypes = {
 
 export default PortfolioPage;
 
-export const porfolioPageQuery = graphql`
+export const portfolioPageQuery = graphql`
   query PortfolioPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
