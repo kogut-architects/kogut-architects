@@ -1,5 +1,6 @@
 import React from 'react';
-import { graphql } from 'gatsby'
+import { graphql } from 'gatsby';
+import Container from 'react-bootstrap/Container';
 
 import ImageGallery from '../components/ImageGallery';
 

@@ -68,7 +68,7 @@ export class PortfolioPageTemplate extends Component {
               ))}
             </dd>
           </Col>
-          <Col>
+          <Col className="image-gallery">
             <Container fluid="true">
               {imageGallery}
             </Container>
