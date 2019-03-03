@@ -6,12 +6,16 @@
   h2 {
     margin-bottom: 20px;
     font-size: 24px;
-    text-transform: uppercase;
+    text-transform: uppercase; 
+  }
+  &-section {
+    padding-bottom: 25px;
   }
   &-details {
-    padding-bottom: 15px;
+    padding-left: 15px;
+
   }
-  &-detail-type {
+  &-section {
     h3 {
       text-transform: uppercase;
       font-size: 20px;
@@ -22,6 +26,10 @@
       font-weight: 300;
       text-transform: none;
     }
+  }
+  &-details a:hover {
+    color: #1abc9c;
+    text-decoration: none;
   }
 }
 

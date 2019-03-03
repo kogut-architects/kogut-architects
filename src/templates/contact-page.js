@@ -47,6 +47,7 @@ export class ContactPageTemplate extends Component {
     const { page } = this.props;
     return (
       <Container className="contact">
+        <h2>Contact the Firm:</h2>
         <Row>
           <Col>
             <Form name="contact" 
@@ -81,14 +82,30 @@ export class ContactPageTemplate extends Component {
             </Form>
           </Col>
           <Col>
-            <Row>
-              <h2>Address:</h2>
-              <Row>
+            <div className="contact-section">
+              <div>
+                <h2>Address:</h2>
+              </div>
+              <div className="contact-details">
                 <ReactMarkdown source={page.frontmatter.address} />
-              </Row>
-
-            </Row>
-
+              </div>
+            </div>
+            <div className="contact-section">
+              <div>
+                <h2>Phone:</h2>
+              </div>
+              <div className="contact-details">
+                <ReactMarkdown source={page.frontmatter.phone} />
+              </div>
+            </div>
+            <div className="contact-section">
+              <div>
+                <h2>E-Mail:</h2>
+              </div>
+              <div className="contact-details">
+                <a href={`mailto:${page.frontmatter.email}`}>{page.frontmatter.email}</a>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>

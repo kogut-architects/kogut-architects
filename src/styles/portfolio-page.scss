@@ -13,6 +13,12 @@
     margin-left: 25px;
     font-size: 0.9rem;
     padding-top: 5px;
+    
+    
+  }
+  &-jobs a:hover:not(&-job-selected) {
+    text-decoration: none;
+    color: #b7b7b7 !important;
   }
   &-jobs.hidden {
     display: none;
@@ -54,10 +60,7 @@
     transition: .5s;
     display: inline-block;
   }
-  a:hover:not(&-job-selected) {
-    text-decoration: none;
-    color: #b7b7b7 !important;
-  }
+  
   &-job-selected:hover {
     text-decoration: none;
     color: inherit;

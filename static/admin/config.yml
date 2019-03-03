@@ -133,7 +133,7 @@ collections:
         fields: 
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page" }
           - { label: "Address", name: "address", widget: "markdown" }
-          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "markdown" }
           - { label: "E-mail", name: "email", widget: "string" }
           - {
               label: "SEO & Meta",
