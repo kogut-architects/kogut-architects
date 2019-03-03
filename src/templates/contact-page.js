@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
@@ -12,44 +12,77 @@ import Row from 'react-bootstrap/Row';
 import "../styles/contact-page.scss";
 import Layout from "../components/Layout";
 
-export const ContactPageTemplate = props => {
-  const { page } = props;
-  return (
-    <Container className="contact">
-      <Row>
-        <Col>
-          <Form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
-            <input type="hidden" name="contact" value="contact" />
-            <Form.Group controlId="name">
-              <Form.Control name="name" placeholder="Your Name" required />
-            </Form.Group>
-            <Form.Group controlId="email">
-              <Form.Control name="email" type="email" placeholder="Your Email" required />
-            </Form.Group>
-            <Form.Group controlId="subject">
-              <Form.Control name="subject" placeholder="Subject" />
-            </Form.Group>
-            <Form.Group controlId="message">
-              <Form.Control name="message" as="textarea" rows="3" placeholder="Message"  required />
-            </Form.Group>
-            <Button variant="dark" type="submit">
-              Send
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
+export class ContactPageTemplate extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    }
+  }
+
+  handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state })
+    })
+      .then(res => console.log('Submit success:', res))
+      .catch(err => console.error(err));
+
+    e.preventDefault();
+  };
+
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+  
+  render () {
+    const { page } = this.props;
+    return (
+      <Container className="contact">
+        <Row>
+          <Col>
+            <Form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" onSubmit={this.handleSubmit}>
+              <input type="hidden" name="contact" value="contact" />
+              <Form.Group controlId="name">
+                <Form.Control name="name" placeholder="Your Name" required onChange={this.handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="email">
+                <Form.Control name="email" type="email" placeholder="Your Email" required onChange={this.handleChange} />
+              </Form.Group>
+              <Form.Group controlId="subject">
+                <Form.Control name="subject" placeholder="Subject" onChange={this.handleChange} />
+              </Form.Group>
+              <Form.Group controlId="message">
+                <Form.Control name="message" as="textarea" rows="3" placeholder="Message" required onChange={this.handleChange} />
+              </Form.Group>
+              <Button variant="dark" type="submit">
+                Send
             </Button>
-          </Form>
-        </Col>
-        <Col>
-          <Row>
-            <h2>Address:</h2>
+            </Form>
+          </Col>
+          <Col>
             <Row>
-              <ReactMarkdown source={page.frontmatter.address} />
+              <h2>Address:</h2>
+              <Row>
+                <ReactMarkdown source={page.frontmatter.address} />
+              </Row>
+
             </Row>
-            
-          </Row>
-          
-        </Col>
-      </Row>
-    </Container>
-  );
+
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+  
 };
 
 const ContactPage = ({ data }) => {
