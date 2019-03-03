@@ -51,10 +51,10 @@ export class ContactPageTemplate extends Component {
           <Col>
             <Form name="contact" 
               method="POST" 
-              data-netlify="true" 
-              data-netlify-recaptcha="true" 
               action="/contact/thanks/"
               data-netlify-honeypot="bot-field"
+              data-netlify="true" 
+              onSubmit={this.handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
               <div hidden>
