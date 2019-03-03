@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { navigate } from 'gatsby-link'
 
 import "../styles/contact-page.scss";
 import Layout from "../components/Layout";
@@ -22,25 +23,57 @@ export class ContactPageTemplate extends Component {
   constructor(props) {
     super(props);
   }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch(error => alert(error))
+  }
+
   render () {
     const { page } = this.props;
     return (
       <Container className="contact">
         <Row>
           <Col>
-            <Form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+            <Form name="contact" 
+              method="POST" 
+              data-netlify="true" 
+              data-netlify-recaptcha="true" 
+              action="/contact/thanks/"
+              data-netlify-honeypot="bot-field"
+            >
               <input type="hidden" name="form-name" value="contact" />
+              <div hidden>
+                <label>
+                  Don’t fill this out:{' '}
+                  <input name="bot-field" onChange={this.handleChange} />
+                </label>
+              </div>
               <Form.Group controlId="name">
-                <Form.Control name="name" placeholder="Your Name" required />
+                <Form.Control name="name" placeholder="Your Name" required onChange={this.handleChange} />
               </Form.Group>
               <Form.Group controlId="email">
-                <Form.Control name="email" type="email" placeholder="Your Email" required />
+                <Form.Control name="email" type="email" placeholder="Your Email" required onChange={this.handleChange} />
               </Form.Group>
               <Form.Group controlId="subject">
-                <Form.Control name="subject" placeholder="Subject" />
+                <Form.Control name="subject" placeholder="Subject" onChange={this.handleChange} />
               </Form.Group>
               <Form.Group controlId="message">
-                <Form.Control name="message" as="textarea" rows="3" placeholder="Message" required />
+                <Form.Control name="message" as="textarea" rows="3" placeholder="Message" required onChange={this.handleChange} />
               </Form.Group>
               <Button variant="dark" type="submit">
                 Send
