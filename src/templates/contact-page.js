@@ -4,6 +4,8 @@ import { graphql } from "gatsby";
 import ReactMarkdown from "react-markdown";
 import Helmet from "react-helmet";
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
@@ -13,7 +15,30 @@ export const ContactPageTemplate = props => {
   const { page } = props;
   return (
     <Container className="contact">
-      
+      <Row>
+        <Col>
+          <Form name="contact" method="POST" data-netlify="true">
+            <Form.Group controlId="name">
+              <Form.Control name="name" placeholder="Your Name" required />
+            </Form.Group>
+            <Form.Group controlId="email">
+              <Form.Control name="email" type="email" placeholder="Your Email" required />
+            </Form.Group>
+            <Form.Group controlId="subject">
+              <Form.Control name="subject" placeholder="Subject" />
+            </Form.Group>
+            <Form.Group controlId="message">
+              <Form.Control name="message" as="textarea" rows="3" placeholder="Message"  required />
+            </Form.Group>
+            <Button variant="dark" type="submit">
+              Send
+            </Button>
+          </Form>
+        </Col>
+        <Col>
+          <div>test</div>
+        </Col>
+      </Row>
     </Container>
   );
 };
