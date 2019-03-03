@@ -146,6 +146,11 @@ collections:
                   { label: "Description", name: "description", widget: "string" },
                 ],
           }
+      - file: "src/pages/contact/thanks.md"
+        label: "Thanks"
+        name: "thanks"
+        fields: 
+          - { label: "Message", name: "message", widget: "markdown" }
   - name: "headerAndFooter"
     label: "Header & Footer"
     files:
