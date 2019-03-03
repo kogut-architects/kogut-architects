@@ -22,15 +22,11 @@ export class PortfolioPageTemplate extends Component {
         imageGallery: []
       } 
     }
-    this.handleCarouselItemSelect = this.handleCarouselItemSelect.bind(this);
+
     this.handlePortfolioTypeClick = this.handlePortfolioTypeClick.bind(this);
     this.handleJobNameClick = this.handleJobNameClick.bind(this);
   }
 
-  handleCarouselItemSelect(index) {
-    // zero-based
-    this.setState({ activeIndex: index });    
-  }
   handlePortfolioTypeClick(type) {
    //console.log('Portofolio Type:', type);
     this.setState({
@@ -40,14 +36,14 @@ export class PortfolioPageTemplate extends Component {
 
   handleJobNameClick(job) {
     //console.log('Job Name:', job);
-    this.setState({ activeIndex: 0, selectedJob: job});
+    this.setState({ selectedJob: job});
   }
 
   render() {
     const { page } = this.props;
     const imageGallery = this.state.selectedJob.imageGallery.length > 0 ? 
-      <ImageGallery images={this.state.selectedJob.imageGallery} /> :
-      <ImageGallery images={page.homeData.edges[0].node.frontmatter.imageGallery} />
+      <ImageGallery key={this.state.selectedJob.name} images={this.state.selectedJob.imageGallery} /> :
+      <ImageGallery key={this.state.selectedJob.name} images={page.homeData.edges[0].node.frontmatter.imageGallery} />
     return (
       <Container className="portfolio">
         <Row>
@@ -60,7 +56,7 @@ export class PortfolioPageTemplate extends Component {
                   {portfolioType.jobs.map((job, index) => (
                       <dd key={index} 
                         className={this.state.selectedPortfolioType === portfolioType.name ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
-                        <a className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
+                        <a href="#" className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
                           onClick={() => this.handleJobNameClick(job)}><span>{job.name}</span></a>
                       </dd>
                     ))}

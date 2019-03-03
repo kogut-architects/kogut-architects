@@ -54,6 +54,10 @@
     text-decoration: none;
     color: #b7b7b7 !important;
   }
+  &-job-selected:hover {
+    text-decoration: none;
+    color: inherit;
+  }
   .image-gallery {
     padding-top: 20px;
   }

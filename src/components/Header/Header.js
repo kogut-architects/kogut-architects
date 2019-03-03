@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./styles.scss";
-import CustomLink from "../CustomLink";
 import logo from './logo.png';
 
 export const HeaderTemplate = ({ data }) => (
@@ -9,7 +8,7 @@ export const HeaderTemplate = ({ data }) => (
     <div className="header-inner">
       <div className="header-bottom container">
         <a href="/">
-          <img src={logo}></img>
+          <img src={logo} alt="Kogut Architects LLC."></img>
         </a>
       </div>
     </div>

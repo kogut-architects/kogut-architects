@@ -8,30 +8,17 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 import Layout from "../components/Layout";
-import "../styles/profile-page.scss";
 
-export const ProfilePageTemplate = props => {
+export const ContactPageTemplate = props => {
   const { page } = props;
   return (
-    <Container className="profile">
-      <Row className="profile-content">
-        {page.frontmatter.employees.map((employee, index) => (
-            <Col key={index}>
-              <h2 className="profile-employee-name">{employee.name}</h2>
-              {employee.info.detailType.map((detail) => (
-                <Container className="profile-detail-type"> 
-                  <Row><h3>{detail.title}</h3></Row>
-                  <ReactMarkdown className="profile-details" source={detail.details} />
-                </Container>
-              ))}
-            </Col>
-        ))}
-      </Row>
+    <Container className="contact">
+      
     </Container>
   );
 };
 
-const ProfilePage = ({ data }) => {
+const ContactPage = ({ data }) => {
   const { markdownRemark: page, footerData, headerData, homeData } = data;
   const {
     frontmatter: {
@@ -46,32 +33,25 @@ const ProfilePage = ({ data }) => {
         <meta name="description" content={seoDescription} />
         <title>{browserTitle}</title>
       </Helmet>
-      <ProfilePageTemplate page={{ ...page, homeData: homeData, bodyIsMarkdown: false }} />
+      <ContactPageTemplate page={{ ...page, homeData: homeData, bodyIsMarkdown: false }} />
     </Layout>
   );
 };
 
-ProfilePage.propTypes = {
+ContactPage.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default ProfilePage;
+export default ContactPage;
 
-export const profilePageQuery = graphql`
-  query ProfilePage($id: String!) {
+export const contactPageQuery = graphql`
+  query ContactPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        title
-        employees {
-          name
-          info {
-            detailType {
-              details
-              title
-            }
-          }
-        }
+        address
+        phone
+        email
         seo {
           browserTitle
           title

@@ -127,6 +127,25 @@ collections:
                   { label: "Description", name: "description", widget: "string" },
                 ],
             }
+      - file: "src/pages/contact/index.md"
+        label: "Contact"
+        name: "contact"
+        fields: 
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page" }
+          - { label: "Address", name: "address", widget: "markdown" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - {
+              label: "SEO & Meta",
+              name: "seo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+          }
   - name: "headerAndFooter"
     label: "Header & Footer"
     files:

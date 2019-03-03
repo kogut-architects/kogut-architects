@@ -14,18 +14,15 @@ class ImageGallery extends Component {
   handleOnSelect (e) {
     this.setState({ activeIndex: e });
   }
-  // useEffect will be run when the list of images change thus we set the initial index of the images to the first one
-  componentDidMount() {
-    //console.log('useEffect');
-    this.setState({ activeIndex: 0 });
-  }
 
   render () {
+    
     return (
+      
       <Carousel activeIndex={this.state.activeIndex} onSelect={(e) => this.handleOnSelect(e)}>
         {this.props.images.map((url, index) => (
           <Carousel.Item key={index} className="carousel-item">
-            <img src={url + '-/resize/1100x500/'} />
+            <img src={url + '-/resize/1100x500/'} alt=""/>
           </Carousel.Item>
         ))}
       </Carousel>
