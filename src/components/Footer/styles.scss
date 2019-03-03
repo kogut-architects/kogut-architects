@@ -35,13 +35,13 @@
     color: $black;
     border-top: 1px solid black;
     text-align: center;
+    max-width: 90%;
   }
   &-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     height: 100%;
-
     @include respond-to("small") {
       flex-direction: row;
     }
