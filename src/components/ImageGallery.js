@@ -22,7 +22,7 @@ class ImageGallery extends Component {
       <Carousel activeIndex={this.state.activeIndex} onSelect={(e) => this.handleOnSelect(e)}>
         {this.props.images.map((url, index) => (
           <Carousel.Item key={index} className="carousel-item">
-            <img src={`${url}-/preview/${this.props.size}`} alt=""/>
+            <img src={`${url}`} alt=""/>
           </Carousel.Item>
         ))}
       </Carousel>
