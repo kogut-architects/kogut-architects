@@ -47,7 +47,7 @@ export class PortfolioPageTemplate extends Component {
     return (
       <Container className="portfolio">
         <Row>
-          <Col md={2}>
+          <Col md={3}>
             <dd className="portfolio-type">
               {page.frontmatter.portfolioTypes.map((portfolioType, index) => (
                 <dl key={index} className="portfolio-list-item">

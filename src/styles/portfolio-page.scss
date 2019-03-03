@@ -2,6 +2,10 @@
 @import "./mixins.scss";
 
 .portfolio {
+  @include respond-to("large") {
+    max-width: 75%;
+  }
+  
   &-type {
     text-transform: uppercase; 
   }
