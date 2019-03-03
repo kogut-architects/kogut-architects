@@ -19,6 +19,7 @@ export const ContactPageTemplate = props => {
       <Row>
         <Col>
           <Form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+            <input type="hidden" name="contact" value="contact" />
             <Form.Group controlId="name">
               <Form.Control name="name" placeholder="Your Name" required />
             </Form.Group>
