@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import ReactMarkdown from "react-markdown";
 import Helmet from "react-helmet";
+import ReactMarkdown from "react-markdown";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+import "../styles/contact-page.scss";
 import Layout from "../components/Layout";
 
 export const ContactPageTemplate = props => {
@@ -17,7 +18,7 @@ export const ContactPageTemplate = props => {
     <Container className="contact">
       <Row>
         <Col>
-          <Form name="contact" method="POST" data-netlify="true">
+          <Form name="contact" method="POST" netlify data-netlify-recaptcha="true">
             <Form.Group controlId="name">
               <Form.Control name="name" placeholder="Your Name" required />
             </Form.Group>
@@ -36,7 +37,14 @@ export const ContactPageTemplate = props => {
           </Form>
         </Col>
         <Col>
-          <div>test</div>
+          <Row>
+            <h2>Address:</h2>
+            <Row>
+              <ReactMarkdown source={page.frontmatter.address} />
+            </Row>
+            
+          </Row>
+          
         </Col>
       </Row>
     </Container>
