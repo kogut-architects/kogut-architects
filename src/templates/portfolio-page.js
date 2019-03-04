@@ -51,12 +51,12 @@ export class PortfolioPageTemplate extends Component {
             <dd className="portfolio-type">
               {page.frontmatter.portfolioTypes.map((portfolioType, index) => (
                 <dl key={index} className="portfolio-list-item">
-                  <dt><a href="#" onClick={() => this.handlePortfolioTypeClick(portfolioType.name)}>{portfolioType.name}</a></dt>
+                  <dt><a onClick={() => this.handlePortfolioTypeClick(portfolioType.name)}>{portfolioType.name}</a></dt>
                   <div></div>
                   {portfolioType.jobs.map((job, index) => (
                       <dd key={index} 
                         className={this.state.selectedPortfolioType === portfolioType.name ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
-                        <a href="#" className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
+                        <a className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
                           onClick={() => this.handleJobNameClick(job)}><span>{job.name}</span></a>
                       </dd>
                     ))}
