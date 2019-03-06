@@ -13,14 +13,9 @@ export const HomePageTemplate = ({ home }) => {
   return (
     <>  
     <Container className="home-container">
-      <Row>
-        <Col>
-            <Container fluid={true}>
-              <ImageGallery images={home.imageGallery} />
-          </Container>
-          
-        </Col>
-      </Row>
+      <Container fluid={true}>
+        <ImageGallery images={home.imageGallery} />
+      </Container>
     </Container>
     </>
   );
