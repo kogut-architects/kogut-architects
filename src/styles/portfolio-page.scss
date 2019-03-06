@@ -9,14 +9,23 @@
   &-type {
     text-transform: uppercase; 
   }
+  &-type button {
+    background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    text-transform: uppercase; 
+    /*outline: 0;*/
+    text-align: left;
+  }
   &-jobs {
     margin-left: 25px;
     font-size: 0.9rem;
     padding-top: 5px;
-    
-    
   }
-  &-jobs a:hover:not(&-job-selected) {
+  &-type button:hover:not(&-job-selected) {
     text-decoration: none;
     color: #b7b7b7 !important;
   }
@@ -33,8 +42,8 @@
     opacity: 1;
   }
   &-job-selected {
-    font-style: italic;
-    font-weight: 600;
+    font-style: italic !important;
+    font-weight: 600 !important;
   }
   dt, dd {
     font-weight: 300;

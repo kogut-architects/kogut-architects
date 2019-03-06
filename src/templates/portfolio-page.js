@@ -27,16 +27,17 @@ export class PortfolioPageTemplate extends Component {
     this.handleJobNameClick = this.handleJobNameClick.bind(this);
   }
 
-  handlePortfolioTypeClick(type) {
+  handlePortfolioTypeClick(e, type) {
    //console.log('Portofolio Type:', type);
-    this.setState({
-      selectedPortfolioType: type,
-    });
+    e.target.blur();
+    this.setState({ selectedPortfolioType: type });
   }
 
-  handleJobNameClick(job) {
+  handleJobNameClick(e, job) {
     //console.log('Job Name:', job);
+    e.target.blur();
     this.setState({ selectedJob: job});
+
   }
 
   render() {
@@ -51,13 +52,13 @@ export class PortfolioPageTemplate extends Component {
             <dd className="portfolio-type">
               {page.frontmatter.portfolioTypes.map((portfolioType, index) => (
                 <dl key={index} className="portfolio-list-item">
-                  <dt><a onClick={() => this.handlePortfolioTypeClick(portfolioType.name)}>{portfolioType.name}</a></dt>
+                  <dt><button onClick={(e) => this.handlePortfolioTypeClick(e, portfolioType.name)}>{portfolioType.name}</button></dt>
                   <div></div>
                   {portfolioType.jobs.map((job, index) => (
                       <dd key={index} 
                         className={this.state.selectedPortfolioType === portfolioType.name ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
-                        <a className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
-                          onClick={() => this.handleJobNameClick(job)}><span>{job.name}</span></a>
+                        <button className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
+                          onClick={(e) => this.handleJobNameClick(e, job)}>{job.name}</button>
                       </dd>
                     ))}
                 </dl>
