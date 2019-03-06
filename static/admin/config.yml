@@ -11,7 +11,7 @@ media_library:
 
 public_folder: /img
 
-display_url: https://kogut-architects.netlify.com/
+display_url: https://kogut-architects.com/
 
 collections:
   - name: "pages"
