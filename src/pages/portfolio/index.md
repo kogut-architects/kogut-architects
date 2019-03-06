@@ -154,8 +154,8 @@ portfolioTypes:
         name: Vandever Residence
     name: On the Boards
 seo:
-  browserTitle: Portfolio
-  description: Portfolio
-  title: Portfolio
+  browserTitle: Kogut • Architects • LLC | Portfolio
+  description: Kogut Architects work portfolio
+  title: Kogut • Architects • LLC | Portfolio
 ---
 

@@ -12,7 +12,6 @@ const TemplateWrapper = ({ footerData = null, headerData = null, children }) => 
   <div>
     <Helmet>
       <html lang="en" />
-      <meta name="robots" content="noindex"></meta>
       <meta name="keywords" content="" /> 
     </Helmet>
     <Header data={headerData} />

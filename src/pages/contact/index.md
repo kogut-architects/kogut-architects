@@ -6,8 +6,8 @@ address: |-
 phone: '#### (301) 490-9066'
 email: 'kogut_architects@comcast.net'
 seo:
-  browserTitle: Kogut • Architects • LLC | Home
-  description: Kogut • Architects • LLC
-  title: Kogut • Architects • LLC | Home
+  browserTitle: Kogut • Architects • LLC | Contact
+  description: Contact Kogut Architects
+  title: Kogut • Architects • LLC | Contact
 ---
 
