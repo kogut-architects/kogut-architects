@@ -7,11 +7,11 @@ media_folder: static/img
 media_library:
   name: uploadcare
   config:
-    publicKey: 0cd18d006f13d506a0c4
+    publicKey: 542eb56e1871370c9a63
 
-public_folder: /img
+site_folder: /img
 
-display_url: https://kogut-architects.com/
+site_url: https://kogut-architects.com/
 
 collections:
   - name: "pages"
