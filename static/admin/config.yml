@@ -35,7 +35,7 @@ collections:
                   widget: "list",
                   fields: [
                     { label: "Name", name: "name", widget: "string" },
-                    { label: "Location", name: "location", widget: "string" },
+                    { label: "Location", name: "location", widget: "string", default: '' },
                     { 
                       label: "Image Gallery", 
                       name: "imageGallery", 
