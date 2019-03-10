@@ -119,7 +119,7 @@ portfolioTypes:
         name: Ebersberger Associates
       - imageGallery:
           - 'https://ucarecdn.com/bee09e47-c9bd-4199-8703-71d6cd6c1e6f~1/nth/0/'
-        location: 'Koons Ford Annapolis, MD.'
+        location: ''
         name: Koons Ford
       - imageGallery:
           - 'https://ucarecdn.com/5c55b667-3200-49cb-ae80-2815b2f27e59~8/nth/0/'
