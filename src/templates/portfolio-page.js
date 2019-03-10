@@ -17,7 +17,8 @@ export class PortfolioPageTemplate extends Component {
 
     this.state = { 
       activeIndex: 0,
-      selectedPortfolioType: '', 
+      openPortfolioType: '',
+      selectedPortfolioType: '',
       selectedJob: {
         imageGallery: []
       } 
@@ -29,15 +30,16 @@ export class PortfolioPageTemplate extends Component {
 
   handlePortfolioTypeClick(e, type) {
    //console.log('Portofolio Type:', type);
+    const {selectedPortfolioType} = type; 
+    const openPortfolioType = type !== this.state.openPortfolioType ? type : ''; 
     e.target.blur();
-    this.setState({ selectedPortfolioType: type });
+    this.setState({ selectedPortfolioType, openPortfolioType });
   }
 
   handleJobNameClick(e, job) {
     //console.log('Job Name:', job);
     e.target.blur();
     this.setState({ selectedJob: job});
-
   }
 
   render() {
@@ -56,7 +58,7 @@ export class PortfolioPageTemplate extends Component {
                   <div></div>
                   {portfolioType.jobs.map((job, index) => (
                       <dd key={index} 
-                        className={this.state.selectedPortfolioType === portfolioType.name ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
+                      className={portfolioType.name === this.state.openPortfolioType ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
                         <button className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
                           onClick={(e) => this.handleJobNameClick(e, job)}>{job.name}</button>
                       </dd>
