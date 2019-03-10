@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import FigureCaption from 'react-bootstrap/FigureCaption';
 
 import Layout from "../components/Layout";
 import "../styles/portfolio-page.scss";
@@ -69,7 +70,10 @@ export class PortfolioPageTemplate extends Component {
           </Col>
           <Col className="image-gallery">
             <Container fluid="true">
-              {imageGallery}
+              <Row>{imageGallery}</Row>
+              <Row className="portfolio-job-location">
+                <FigureCaption>{this.state.selectedJob.location}</FigureCaption>
+              </Row>
             </Container>
           </Col>
         </Row>
@@ -115,6 +119,7 @@ export const portfolioPageQuery = graphql`
           name 
           jobs {
             name
+            location
             imageGallery
           }
         }

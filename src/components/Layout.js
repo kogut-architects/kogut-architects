@@ -73,6 +73,7 @@ export const query = graphql`
               name
               jobs {
                 name
+                location
               }
             }
           }
