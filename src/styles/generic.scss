@@ -40,6 +40,10 @@ a {
   border-radius: 50%;
   border: 1px solid black;
   background-image: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s linear;
+  transition-duration: .2s;
 }
 
 .carousel-control-next-icon:after
@@ -53,4 +57,10 @@ a {
   content: '<';
   font-size: 26px;
   color: black;
+}
+
+.image-gallery:hover .carousel-control-prev-icon,
+.image-gallery:hover .carousel-control-next-icon{
+  visibility: visible;
+  opacity: 1;
 }
