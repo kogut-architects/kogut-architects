@@ -83,19 +83,7 @@
     width: 100%;
   }  
 
-  // when viewport is wider enough to fit footer links
-  &-menu-items.mobile {
-    @include respond-to("mobile") {
-      display:none;
-    }
-  }
-  // when too small
-  &-menu-items.desktop {
-    @include respond-to-max("mobile") {
-      display:none;
-    }
-  }
-  &-menu-items.mobile  > li:not(:last-child):after{
+  &-menu-items > li:not(:last-child):after{
     @include respond-to-max("mobile") {
       display:block;
     }
