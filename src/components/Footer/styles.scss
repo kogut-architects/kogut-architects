@@ -21,7 +21,6 @@
     margin-left: 20px;
     margin-right: 20px;
   }
-
   &-menu-items > li > a { 
     transition: .5s;
   }
@@ -79,46 +78,26 @@
     @include medium-font();
   }
 
-  &-socialMenu {
-    margin: 20px;
-
-    @include respond-to("small") {
-      margin-left: auto;
-    }
-  }
-
-  &-socialMenuItem {
-    padding: 15px 0;
-  }
-
-  &-socialLink {
-    @include medium-font;
-    font-weight: 400;
-    text-decoration: none;
-    color: $body-light;
-    display: flex;
-    align-items: center;
-  }
-
-  &-socialLinkIcon {
-    width: 40px;
-    margin-right: 20px;
-  }
-
-  &-flag {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 2rem;
-    padding-top: 20px;
-
-    @include respond-to("small") {
-      margin-left: auto;
-    }
-  }
-
   &-bottom {
     margin-top: auto;
     width: 100%;
+  }  
+
+  // when viewport is wider enough to fit footer links
+  &-menu-items.mobile {
+    @include respond-to("mobile") {
+      display:none;
+    }
+  }
+  // when too small
+  &-menu-items.desktop {
+    @include respond-to-max("mobile") {
+      display:none;
+    }
+  }
+  &-menu-items.mobile  > li:not(:last-child):after{
+    @include respond-to-max("mobile") {
+      display:block;
+    }
   }
 }

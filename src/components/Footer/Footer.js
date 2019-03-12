@@ -12,7 +12,8 @@ export const FooterTemplate = ({ data }) => {
         <div className="footer-bottom container">
           <div className="footer-bottom-container">
           {menuItems.length > 0 && (
-            <ul className="footer-menu-items">
+            <div>
+            <ul className="footer-menu-items desktop">
               {menuItems.map(menuItem => (
                 <li key={menuItem.label}>
                   <Link href="#" className="footer-menu-item"
@@ -23,6 +24,18 @@ export const FooterTemplate = ({ data }) => {
                 </li>
               ))}
             </ul>
+            <ul className="footer-menu-items mobile">
+              {menuItems.map(menuItem => (
+                <li key={menuItem.label}>
+                  <Link href="#" className="footer-menu-item"
+                    to={menuItem.linkURL}
+                  >
+                    {menuItem.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+              </div>
           )}
           </div>
         </div>

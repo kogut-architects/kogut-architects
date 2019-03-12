@@ -12,6 +12,7 @@ const TemplateWrapper = ({ footerData = null, headerData = null, children }) => 
   <div>
     <Helmet>
       <html lang="en" />
+      <meta name="viewport" content="width=device-width, initial-scale=1"/> 
       <meta name="keywords" content="" /> 
     </Helmet>
     <Header data={headerData} />
