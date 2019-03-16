@@ -15,8 +15,14 @@ exports.createPages = ({ actions, graphql }) => {
               slug
             }
             frontmatter {
-              
               templateKey
+              portfolioTypes {
+                name 
+                jobs {
+                  name
+                  location
+                }
+              }
             }
           }
         }
@@ -34,8 +40,6 @@ exports.createPages = ({ actions, graphql }) => {
         return false;
       } else if (edge.node.frontmatter.templateKey === "footer") {
         return false;
-      } else if (edge.node.frontmatter.templateKey === "portfolio-type") {
-        return false;
       } else {
         return true;
       }
@@ -46,26 +50,72 @@ exports.createPages = ({ actions, graphql }) => {
        if (edge.node.frontmatter.templateKey === "home-page") {
          pathName = "/";
          component = path.resolve(`src/pages/index.js`);
-       } else {
+       }
+       else if (edge.node.frontmatter.templateKey === "portfolio-page") {
+        // create main portfolio page
+         const id = edge.node.id;
+         pathName = edge.node.frontmatter.path || edge.node.fields.slug;
+         component = path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.js`);
+         createPage({
+           path: pathName,
+           component,
+           // additional data can be passed via context
+           context: {
+             id,
+           },
+         });
+        // create a page for each portfolioType
+         edge.node.frontmatter.portfolioTypes.forEach(type => {
+           const typeName = type.name.replace(/\s/g, '-').toLowerCase();
+           pathName = `${edge.node.frontmatter.path || edge.node.fields.slug}${typeName}/`;
+           component = path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.js`);
+           createPage({
+             path: pathName,
+             component,
+             // additional data can be passed via context
+             context: {
+               id,
+               typeName: type.name,
+             },
+            });
+            // now for every job create a page
+            type.jobs.forEach(job => {
+              const jobName = job.name.replace(/\s/g, '-').toLowerCase();
+              pathName = `${edge.node.frontmatter.path || edge.node.fields.slug}${typeName}/${jobName}/`;
+              component = path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.js`);
+              const context = {
+                id,
+                typeName: type.name,
+                jobName: job.name,
+              }
+              createPage({
+                path: pathName,
+                component,
+                // additional data can be passed via context
+                context,
+              });
+            });
+         });
+      }
+       else {
         pathName = edge.node.frontmatter.path || edge.node.fields.slug;
         component = path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.js`);
+        const id = edge.node.id;
+        createPage({
+          path: pathName,
+          component,
+          // additional data can be passed via context
+          context: {
+            id,
+          },
+        });
       }
-      const id = edge.node.id;
-      createPage({
-        path: pathName,
-        component,
-        // additional data can be passed via context
-        context: {
-          id,
-        },
-      });
     });
   });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
     createNodeField({

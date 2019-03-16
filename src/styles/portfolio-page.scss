@@ -9,7 +9,7 @@
   &-type {
     text-transform: uppercase; 
   }
-  &-type button {
+  &-type a {
     background:none!important;
     color:inherit;
     border:none; 
@@ -25,7 +25,7 @@
     font-size: 0.9rem;
     padding-top: 5px;
   }
-  &-type button:hover:not(&-job-selected) {
+  &-type a:hover:not(.active) {
     text-decoration: none;
     color: #b7b7b7 !important;
   }
@@ -41,7 +41,7 @@
     max-height: 250px;
     opacity: 1;
   }
-  &-job-selected {
+  &-jobs a.active {
     font-style: italic !important;
     font-weight: 600 !important;
   }
@@ -70,7 +70,7 @@
     display: inline-block;
   }
   
-  &-job-selected:hover {
+  &-jobs a.active:hover {
     text-decoration: none;
     color: inherit;
   }

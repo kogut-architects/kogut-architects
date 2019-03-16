@@ -15,9 +15,7 @@ export const FooterTemplate = ({ data }) => {
             <ul className="footer-menu-items">
             {menuItems.map(menuItem => (
               <li key={menuItem.label}>
-                <Link href="#" className="footer-menu-item"
-                  to={menuItem.linkURL}
-                >
+                <Link className="footer-menu-item" to={menuItem.linkURL}>
                   {menuItem.label}
                 </Link>
               </li>

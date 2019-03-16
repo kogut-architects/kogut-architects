@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Helmet from "react-helmet";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -11,11 +11,9 @@ import Layout from "../components/Layout";
 import "../styles/portfolio-page.scss";
 import ImageGallery from "../components/ImageGallery";
 
-
 export class PortfolioPageTemplate extends Component {
   constructor(props) {
     super(props);
-
     this.state = { 
       activeIndex: 0,
       openPortfolioType: '',
@@ -25,29 +23,32 @@ export class PortfolioPageTemplate extends Component {
       } 
     }
 
-    this.handlePortfolioTypeClick = this.handlePortfolioTypeClick.bind(this);
-    this.handleJobNameClick = this.handleJobNameClick.bind(this);
-  }
-
-  handlePortfolioTypeClick(e, type) {
-   //console.log('Portofolio Type:', type);
-    const {selectedPortfolioType} = type; 
-    const openPortfolioType = type !== this.state.openPortfolioType ? type : ''; 
-    e.target.blur();
-    this.setState({ selectedPortfolioType, openPortfolioType });
-  }
-
-  handleJobNameClick(e, job) {
-    //console.log('Job Name:', job);
-    e.target.blur();
-    this.setState({ selectedJob: job});
+    this.selectedJob = { name: '' };
   }
 
   render() {
-    const { page } = this.props;
-    const imageGallery = this.state.selectedJob.imageGallery.length > 0 ? 
-      <ImageGallery key={this.state.selectedJob.name} images={this.state.selectedJob.imageGallery} /> :
-      <ImageGallery key={this.state.selectedJob.name} images={page.homeData.edges[0].node.frontmatter.imageGallery} />
+    const { page, context, location } = this.props;
+    const selectedPortfolio = page.frontmatter.portfolioTypes.find((type) => {
+      return type.name === context.typeName;
+    });
+    
+    if (selectedPortfolio && context.jobName) {
+      this.selectedJob = selectedPortfolio.jobs.find((job) => {
+        return job.name === context.jobName;
+      });
+    }
+    // if we don't have a selected job, i.e. maybe clicked portfolio type, then see if there is state in history
+    else if (location.state && location.state.selectedJob) {
+      this.selectedJob = location.state.selectedJob;
+    }
+    /*const isActive = ({ isCurrent, location }) => {
+      if (isCurrent) {
+        console.log(location);
+      }
+    }*/
+    const imageGallery = this.selectedJob.imageGallery && this.selectedJob.imageGallery.length > 0 ? 
+      <ImageGallery key={this.selectedJob.name} images={this.selectedJob.imageGallery} /> :
+      <ImageGallery images={page.homeData.edges[0].node.frontmatter.imageGallery} />
     return (
       <Container className="portfolio">
         <Row>
@@ -55,13 +56,17 @@ export class PortfolioPageTemplate extends Component {
             <dd className="portfolio-type">
               {page.frontmatter.portfolioTypes.map((portfolioType, index) => (
                 <dl key={index} className="portfolio-list-item">
-                  <dt><button onClick={(e) => this.handlePortfolioTypeClick(e, portfolioType.name)}>{portfolioType.name}</button></dt>
+                  <dt>
+                    <Link to={`/portfolio/${portfolioType.name.replace(/\s/g, '-').toLowerCase()}`} 
+                          state={{ portfolioType, selectedJob: this.selectedJob }}>
+                      {portfolioType.name}
+                    </Link></dt>
                   <div></div>
                   {portfolioType.jobs.map((job, index) => (
                       <dd key={index} 
-                      className={portfolioType.name === this.state.openPortfolioType ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
-                        <button className={this.state.selectedJob.name === job.name ? 'portfolio-job-selected' : ''} 
-                          onClick={(e) => this.handleJobNameClick(e, job)}>{job.name}</button>
+                      className={portfolioType.name === context.typeName ? 'portfolio-jobs open' : 'portfolio-jobs hidden'}>
+                      <Link activeClassName="active" state={{ portfolioType, selectedJob: this.selectedJob }}
+                        to={`/portfolio/${portfolioType.name.replace(/\s/g, '-').toLowerCase()}/${job.name.replace(/\s/g, '-').toLowerCase()}`}>{job.name}</Link>
                       </dd>
                     ))}
                 </dl>
@@ -83,7 +88,7 @@ export class PortfolioPageTemplate extends Component {
   }
 };
 
-const PortfolioPage = ({ data }) => {
+const PortfolioPage = ({ data, pageContext, location }) => {
   const { markdownRemark: page, footerData, headerData, homeData, portfolioTypes } = data;
   const {
     frontmatter: {
@@ -98,7 +103,7 @@ const PortfolioPage = ({ data }) => {
         <meta name="description" content={seoDescription} />
         <title>{browserTitle}</title>
       </Helmet>
-      <PortfolioPageTemplate page={{ ...page, portfolioTypes: portfolioTypes, homeData: homeData, bodyIsMarkdown: false }} />
+      <PortfolioPageTemplate location={location} context={pageContext} page={{ ...page, portfolioTypes: portfolioTypes, homeData: homeData, bodyIsMarkdown: false }} />
     </Layout>
   );
 };

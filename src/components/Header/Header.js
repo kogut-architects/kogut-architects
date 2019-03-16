@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import "./styles.scss";
 import logo from './logo.png';
@@ -7,9 +8,9 @@ export const HeaderTemplate = ({ data }) => (
   <header className="header">
     <div className="header-inner">
       <div className="header-bottom container">
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="Kogut Architects LLC."></img>
-        </a>
+        </Link>
       </div>
     </div>
   </header>
