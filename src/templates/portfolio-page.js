@@ -41,7 +41,7 @@ export class PortfolioPageTemplate extends Component {
       });
     }
     // if we don't have a selected job, i.e. maybe clicked portfolio type, then see if there is state in history
-    else if (location.state && location.state.selectedJob) {
+    else if (location && location.state && location.state.selectedJob) {
       this.selectedJob = location.state.selectedJob;
     }
     // create a hashtable of all types to keep track if we should open or close the jobw
