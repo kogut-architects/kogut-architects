@@ -28,9 +28,12 @@ export class PortfolioPageTemplate extends Component {
   
   render() {
     const { page, context, location } = this.props;
-    const selectedPortfolio = page.frontmatter.portfolioTypes.find((type) => {
-      return type.name === context.typeName;
-    });
+    var selectedPortfolio = {};
+    if (context.typeName) {
+      selectedPortfolio = page.frontmatter.portfolioTypes.find((type) => {
+        return type.name === context.typeName;
+      });
+    }
     //console.log(location.state.portfolioType);
     if (selectedPortfolio && context.jobName) {
       this.selectedJob = selectedPortfolio.jobs.find((job) => {
