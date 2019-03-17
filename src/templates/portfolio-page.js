@@ -29,7 +29,7 @@ export class PortfolioPageTemplate extends Component {
   render() {
     const { page, context, location } = this.props;
     var selectedPortfolio = {};
-    if (context.typeName) {
+    if (context) {
       selectedPortfolio = page.frontmatter.portfolioTypes.find((type) => {
         return type.name === context.typeName;
       });
