@@ -87,6 +87,7 @@ exports.createPages = ({ actions, graphql }) => {
                 id,
                 typeName: type.name,
                 jobName: job.name,
+                jobLocation: job.location,
               }
               createPage({
                 path: pathName,

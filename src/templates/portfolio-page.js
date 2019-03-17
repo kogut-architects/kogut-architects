@@ -102,12 +102,24 @@ export class PortfolioPageTemplate extends Component {
 
 const PortfolioPage = ({ data, pageContext, location }) => {
   const { markdownRemark: page, footerData, headerData, homeData, portfolioTypes } = data;
-  const {
+  var {
     frontmatter: {
       seo: { title: seoTitle, description: seoDescription, browserTitle },
     },
   } = page;
-
+  // set seo meta tags
+  if (pageContext.typeName) {
+    seoTitle += ` | ${pageContext.typeName}`;
+    browserTitle += ` | ${pageContext.typeName}`;
+  }
+  if (pageContext.jobName) {
+    seoTitle += ` | ${pageContext.jobName}`;
+    browserTitle += ` | ${pageContext.jobName}`;
+  }
+  if (pageContext.jobLocation) {
+    seoDescription = pageContext.jobLocation;
+  }
+  
   return (
     <Layout footerData={footerData} headerData={headerData}>
       <Helmet>
