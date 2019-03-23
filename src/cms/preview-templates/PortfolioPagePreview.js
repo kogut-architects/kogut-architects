@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { PortfolioPageTemplate } from "../../templates/portfolio-page";
+import { PortfolioPagePreviewTemplate } from "../../templates/portfolio-page-preview";
 
 const PortfolioPagePreview = ({ entry, widgetFor }) => ( 
-  <PortfolioPageTemplate page = {{
+  <PortfolioPagePreviewTemplate page = {{
       frontmatter: entry.getIn(["data"]).toJS(),
       homeData: {edges: [{node: {frontmatter: {imageGallery: []}}}]},
       html: entry.getIn(["data", "body"]),
