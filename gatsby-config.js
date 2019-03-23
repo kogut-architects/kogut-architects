@@ -37,6 +37,7 @@ module.exports = {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: "./src/img/favicon.png",
+        appName: "Kogut Architects",
       },
     },
     /*{
