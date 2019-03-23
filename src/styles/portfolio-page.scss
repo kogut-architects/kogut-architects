@@ -20,6 +20,22 @@
     /*outline: 0;*/
     text-align: left;
   }
+  // only used for cms preview page
+  &-type button {
+    background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    text-transform: uppercase; 
+    /*outline: 0;*/
+    text-align: left;
+  }
+  &-type button:hover:not(&-job-selected) {
+    text-decoration: none;
+    color: #b7b7b7 !important;
+  }
   &-jobs {
     margin-left: 25px;
     font-size: 0.9rem;
