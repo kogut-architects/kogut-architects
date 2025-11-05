@@ -1,8 +1,8 @@
 ---
 templateKey: contact-page
 address: |-
-  #### 8600 Foundry Street
-  #### Savage, Maryland 20763
+  #### P.O. Box 35
+  #### Dayton, Maryland 21036
 phone: '#### (301) 490-9066'
 email: 'kogut_architects@comcast.net'
 seo:
