@@ -1,12 +1,17 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import LocationIcon from "../img/location.svg";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+} from 'react-google-maps'
+import LocationIcon from '../img/location.svg'
 
 class Map extends Component {
   render() {
     if (!this.props.latitude || !this.props.longitude || !this.props.link) {
-      return null;
+      return null
     }
     return (
       <GoogleMap
@@ -20,7 +25,7 @@ class Map extends Component {
           onClick={() => window.open(this.props.link)}
         />
       </GoogleMap>
-    );
+    )
   }
 }
 
@@ -28,26 +33,26 @@ Map.propTypes = {
   link: PropTypes.string,
   latitude: PropTypes.number,
   longitude: PropTypes.number,
-};
+}
 
-export default withScriptjs(withGoogleMap(Map));
+export default withScriptjs(withGoogleMap(Map))
 
 const exampleMapStyles = [
   {
-    featureType: "all",
-    elementType: "labels.text.fill",
+    featureType: 'all',
+    elementType: 'labels.text.fill',
     stylers: [
       {
-        color: "#ffffff",
+        color: '#ffffff',
       },
     ],
   },
   {
-    featureType: "all",
-    elementType: "labels.text.stroke",
+    featureType: 'all',
+    elementType: 'labels.text.stroke',
     stylers: [
       {
-        color: "#000000",
+        color: '#000000',
       },
       {
         lightness: 13,
@@ -55,20 +60,20 @@ const exampleMapStyles = [
     ],
   },
   {
-    featureType: "administrative",
-    elementType: "geometry.fill",
+    featureType: 'administrative',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#000000",
+        color: '#000000',
       },
     ],
   },
   {
-    featureType: "administrative",
-    elementType: "geometry.stroke",
+    featureType: 'administrative',
+    elementType: 'geometry.stroke',
     stylers: [
       {
-        color: "#144b53",
+        color: '#144b53',
       },
       {
         lightness: 14,
@@ -79,20 +84,20 @@ const exampleMapStyles = [
     ],
   },
   {
-    featureType: "landscape",
-    elementType: "all",
+    featureType: 'landscape',
+    elementType: 'all',
     stylers: [
       {
-        color: "#08304b",
+        color: '#08304b',
       },
     ],
   },
   {
-    featureType: "poi",
-    elementType: "geometry",
+    featureType: 'poi',
+    elementType: 'geometry',
     stylers: [
       {
-        color: "#0c4152",
+        color: '#0c4152',
       },
       {
         lightness: 5,
@@ -100,20 +105,20 @@ const exampleMapStyles = [
     ],
   },
   {
-    featureType: "road.highway",
-    elementType: "geometry.fill",
+    featureType: 'road.highway',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#000000",
+        color: '#000000',
       },
     ],
   },
   {
-    featureType: "road.highway",
-    elementType: "geometry.stroke",
+    featureType: 'road.highway',
+    elementType: 'geometry.stroke',
     stylers: [
       {
-        color: "#0b434f",
+        color: '#0b434f',
       },
       {
         lightness: 25,
@@ -121,20 +126,20 @@ const exampleMapStyles = [
     ],
   },
   {
-    featureType: "road.arterial",
-    elementType: "geometry.fill",
+    featureType: 'road.arterial',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#000000",
+        color: '#000000',
       },
     ],
   },
   {
-    featureType: "road.arterial",
-    elementType: "geometry.stroke",
+    featureType: 'road.arterial',
+    elementType: 'geometry.stroke',
     stylers: [
       {
-        color: "#0b3d51",
+        color: '#0b3d51',
       },
       {
         lightness: 16,
@@ -142,30 +147,30 @@ const exampleMapStyles = [
     ],
   },
   {
-    featureType: "road.local",
-    elementType: "geometry",
+    featureType: 'road.local',
+    elementType: 'geometry',
     stylers: [
       {
-        color: "#000000",
+        color: '#000000',
       },
     ],
   },
   {
-    featureType: "transit",
-    elementType: "all",
+    featureType: 'transit',
+    elementType: 'all',
     stylers: [
       {
-        color: "#146474",
+        color: '#146474',
       },
     ],
   },
   {
-    featureType: "water",
-    elementType: "all",
+    featureType: 'water',
+    elementType: 'all',
     stylers: [
       {
-        color: "#021019",
+        color: '#021019',
       },
     ],
   },
-];
+]

@@ -1,19 +1,23 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import Container from 'react-bootstrap/Container';
+import React from 'react'
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
+import Container from 'react-bootstrap/Container'
 
-import "../styles";
+import '../styles'
 //import { Navbar } from "../components/Navbar";
 import { Header } from '../components/Header'
-import { Footer } from "../components/Footer";
+import { Footer } from '../components/Footer'
 
-const TemplateWrapper = ({ footerData = null, headerData = null, children }) => (
+const TemplateWrapper = ({
+  footerData = null,
+  headerData = null,
+  children,
+}) => (
   <div>
     <Helmet>
       <html lang="en" />
-      <meta name="viewport" content="width=device-width, initial-scale=1"/> 
-      <meta name="keywords" content="" /> 
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="keywords" content="" />
     </Helmet>
     <Header data={headerData} />
     <main className="main-content">
@@ -21,11 +25,13 @@ const TemplateWrapper = ({ footerData = null, headerData = null, children }) => 
     </main>
     <Footer data={footerData} />
   </div>
-);
+)
 
 export const query = graphql`
   fragment LayoutFragment on Query {
-    footerData: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "footer" } } }) {
+    footerData: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "footer" } } }
+    ) {
       edges {
         node {
           id
@@ -39,7 +45,9 @@ export const query = graphql`
         }
       }
     }
-    headerData: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "header" } } }) {
+    headerData: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "header" } } }
+    ) {
       edges {
         node {
           id
@@ -53,7 +61,9 @@ export const query = graphql`
         }
       }
     }
-    homeData: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "home-page" } } }) {
+    homeData: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "home-page" } } }
+    ) {
       edges {
         node {
           id
@@ -63,7 +73,9 @@ export const query = graphql`
         }
       }
     }
-    portfolioTypes: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "portfolio-page"}}}) {
+    portfolioTypes: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "portfolio-page" } } }
+    ) {
       edges {
         node {
           id
@@ -82,6 +94,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default TemplateWrapper;
+export default TemplateWrapper

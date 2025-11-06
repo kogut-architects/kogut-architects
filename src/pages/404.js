@@ -1,7 +1,7 @@
-import React from "react";
-import Layout from "../components/Layout";
-import Helmet from "react-helmet";
-import "../styles/404.scss";
+import React from 'react'
+import Layout from '../components/Layout'
+import Helmet from 'react-helmet'
+import '../styles/404.scss'
 
 const NotFoundPage = () => (
   <Layout>
@@ -18,6 +18,6 @@ const NotFoundPage = () => (
       `}</p>
     </div>
   </Layout>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage

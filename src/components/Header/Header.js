@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react'
+import { Link } from 'gatsby'
 
-import "./styles.scss";
-import logo from './logo.png';
+import './styles.scss'
+import logo from './logo.png'
 
 export const HeaderTemplate = ({ data }) => (
   <header className="header">
@@ -14,14 +14,14 @@ export const HeaderTemplate = ({ data }) => (
       </div>
     </div>
   </header>
-);
+)
 
-const Header = props => {
+const Header = (props) => {
   if (!props.data) {
-    return null;
+    return null
   }
-  const data = props.data.edges[0].node.frontmatter;
-  return <HeaderTemplate data={data} />;
-};
+  const data = props.data.edges[0].node.frontmatter
+  return <HeaderTemplate data={data} />
+}
 
-export { Header };
+export { Header }

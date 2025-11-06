@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import "./styles.scss";
-import CustomLink from "../CustomLink";
-import logo from './logo.png';
+import './styles.scss'
+import CustomLink from '../CustomLink'
+import logo from './logo.png'
 
 export const NavbarTemplate = ({ data }) => (
   <nav className="navbar">
@@ -14,14 +14,14 @@ export const NavbarTemplate = ({ data }) => (
       </div>
     </div>
   </nav>
-);
+)
 
-const Navbar = props => {
+const Navbar = (props) => {
   if (!props.data) {
-    return null;
+    return null
   }
-  const data = props.data.edges[0].node.frontmatter;
-  return <NavbarTemplate data={data} />;
-};
+  const data = props.data.edges[0].node.frontmatter
+  return <NavbarTemplate data={data} />
+}
 
-export { Navbar };
+export { Navbar }

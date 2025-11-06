@@ -1,34 +1,34 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
-import Helmet from "react-helmet";
-import ReactMarkdown from "react-markdown";
-import Container from 'react-bootstrap/Container';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
+import ReactMarkdown from 'react-markdown'
+import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import Form from 'react-bootstrap/Form'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 import { navigate } from 'gatsby-link'
 
-import "../styles/contact-page.scss";
-import Layout from "../components/Layout";
+import '../styles/contact-page.scss'
+import Layout from '../components/Layout'
 
 const encode = (data) => {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
 export class ContactPageTemplate extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
     fetch('/', {
@@ -40,21 +40,22 @@ export class ContactPageTemplate extends Component {
       }),
     })
       .then(() => navigate(form.getAttribute('action')))
-      .catch(error => alert(error))
+      .catch((error) => alert(error))
   }
 
-  render () {
-    const { page } = this.props;
+  render() {
+    const { page } = this.props
     return (
       <Container className="contact">
         <h2>Contact the Firm:</h2>
         <Row>
           <Col>
-            <Form name="contact" 
-              method="POST" 
+            <Form
+              name="contact"
+              method="POST"
               action="/contact/thanks/"
               data-netlify-honeypot="bot-field"
-              data-netlify="true" 
+              data-netlify="true"
               onSubmit={this.handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
@@ -65,20 +66,42 @@ export class ContactPageTemplate extends Component {
                 </label>
               </div>
               <Form.Group controlId="name">
-                <Form.Control name="name" placeholder="Your Name" required onChange={this.handleChange} />
+                <Form.Control
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  onChange={this.handleChange}
+                />
               </Form.Group>
               <Form.Group controlId="email">
-                <Form.Control name="email" type="email" placeholder="Your Email" required onChange={this.handleChange} />
+                <Form.Control
+                  name="email"
+                  type="email"
+                  placeholder="Your Email"
+                  required
+                  onChange={this.handleChange}
+                />
               </Form.Group>
               <Form.Group controlId="subject">
-                <Form.Control name="subject" placeholder="Subject" onChange={this.handleChange} />
+                <Form.Control
+                  name="subject"
+                  placeholder="Subject"
+                  onChange={this.handleChange}
+                />
               </Form.Group>
               <Form.Group controlId="message">
-                <Form.Control name="message" as="textarea" rows="3" placeholder="Message" required onChange={this.handleChange} />
+                <Form.Control
+                  name="message"
+                  as="textarea"
+                  rows="3"
+                  placeholder="Message"
+                  required
+                  onChange={this.handleChange}
+                />
               </Form.Group>
               <Button variant="dark" type="submit">
                 Send
-            </Button>
+              </Button>
             </Form>
           </Col>
           <Col>
@@ -103,24 +126,25 @@ export class ContactPageTemplate extends Component {
                 <h2>E-Mail:</h2>
               </div>
               <div className="contact-details">
-                <a href={`mailto:${page.frontmatter.email}`}>{page.frontmatter.email}</a>
+                <a href={`mailto:${page.frontmatter.email}`}>
+                  {page.frontmatter.email}
+                </a>
               </div>
             </div>
           </Col>
         </Row>
       </Container>
-    );
+    )
   }
-  
-};
+}
 
 const ContactPage = ({ data }) => {
-  const { markdownRemark: page, footerData, headerData, homeData } = data;
+  const { markdownRemark: page, footerData, headerData, homeData } = data
   const {
     frontmatter: {
       seo: { title: seoTitle, description: seoDescription, browserTitle },
     },
-  } = page;
+  } = page
 
   return (
     <Layout footerData={footerData} headerData={headerData}>
@@ -129,16 +153,18 @@ const ContactPage = ({ data }) => {
         <meta name="description" content={seoDescription} />
         <title>{browserTitle}</title>
       </Helmet>
-      <ContactPageTemplate page={{ ...page, homeData: homeData, bodyIsMarkdown: false }} />
+      <ContactPageTemplate
+        page={{ ...page, homeData: homeData, bodyIsMarkdown: false }}
+      />
     </Layout>
-  );
-};
+  )
+}
 
 ContactPage.propTypes = {
   data: PropTypes.object.isRequired,
-};
+}
 
-export default ContactPage;
+export default ContactPage
 
 export const contactPageQuery = graphql`
   query ContactPage($id: String!) {
@@ -157,4 +183,4 @@ export const contactPageQuery = graphql`
     }
     ...LayoutFragment
   }
-`;
+`

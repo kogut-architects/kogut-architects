@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+import React, { Component } from 'react'
+import Carousel from 'react-bootstrap/Carousel'
 
 class ImageGallery extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      activeIndex: 0
-    };
+      activeIndex: 0,
+    }
 
-    this.handleOnSelect = this.handleOnSelect.bind(this);
+    this.handleOnSelect = this.handleOnSelect.bind(this)
   }
-  handleOnSelect (e) {
-    this.setState({ activeIndex: e });
+  handleOnSelect(e) {
+    this.setState({ activeIndex: e })
   }
 
-  render () {
-    
+  render() {
     return (
-      
-      <Carousel activeIndex={this.state.activeIndex} onSelect={(e) => this.handleOnSelect(e)}>
+      <Carousel
+        activeIndex={this.state.activeIndex}
+        onSelect={(e) => this.handleOnSelect(e)}
+      >
         {this.props.images.map((url, index) => (
           <Carousel.Item key={index} className="carousel-item">
-            <img src={`${url}`} alt=""/>
+            <img src={`${url}`} alt="" />
           </Carousel.Item>
         ))}
       </Carousel>
@@ -30,4 +31,4 @@ class ImageGallery extends Component {
   }
 }
 
-export default ImageGallery;
+export default ImageGallery

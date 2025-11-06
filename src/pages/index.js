@@ -2,21 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ImageGallery from '../components/ImageGallery';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import ImageGallery from "../components/ImageGallery";
 import Layout from "../components/Layout";
 import "../styles/home.scss";
 
+if (typeof process === "undefined") {
+  window.process = {
+    env: {},
+    cwd: () => "", // Provide a dummy cwd function
+    platform: "browser", // Indicate browser platform
+  };
+}
+
 export const HomePageTemplate = ({ home }) => {
   return (
-    <>  
-    <Container className="home-container">
-      <Container fluid={true}>
-        <ImageGallery images={home.imageGallery} />
+    <>
+      <Container className="home-container">
+        <Container fluid={true}>
+          <ImageGallery images={home.imageGallery} />
+        </Container>
       </Container>
-    </Container>
     </>
   );
 };
@@ -31,7 +39,7 @@ class HomePage extends React.Component {
     const {
       seo: { title: seoTitle, description: seoDescription, browserTitle },
     } = home;
-    
+
     return (
       <Layout footerData={footerData} headerData={headerData}>
         <Helmet>
@@ -67,7 +75,9 @@ export const pageQuery = graphql`
       }
     }
     ...LayoutFragment
-    homePageData: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "home-page" } } }) {
+    homePageData: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "home-page" } } }
+    ) {
       edges {
         node {
           frontmatter {
