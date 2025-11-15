@@ -1,17 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import ReactMarkdown from 'react-markdown'
-import Helmet from 'react-helmet'
-import Container from 'react-bootstrap/Container'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import ReactMarkdown from "react-markdown";
+import Helmet from "react-helmet";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
-import Layout from '../components/Layout'
-import '../styles/profile-page.scss'
+import Layout from "../components/Layout";
+import "../styles/profile-page.scss";
 
 export const ProfilePageTemplate = (props) => {
-  const { page } = props
+  const { page } = props;
   return (
     <Container className="profile">
       <Row className="profile-content">
@@ -23,26 +23,25 @@ export const ProfilePageTemplate = (props) => {
                 <Row>
                   <h3>{detail.title}</h3>
                 </Row>
-                <ReactMarkdown
-                  className="profile-details"
-                  source={detail.details}
-                />
+                <ReactMarkdown className="profile-details">
+                  {detail.details}
+                </ReactMarkdown>
               </Container>
             ))}
           </Col>
         ))}
       </Row>
     </Container>
-  )
-}
+  );
+};
 
 const ProfilePage = ({ data }) => {
-  const { markdownRemark: page, footerData, headerData, homeData } = data
+  const { markdownRemark: page, footerData, headerData, homeData } = data;
   const {
     frontmatter: {
       seo: { title: seoTitle, description: seoDescription, browserTitle },
     },
-  } = page
+  } = page;
 
   return (
     <Layout footerData={footerData} headerData={headerData}>
@@ -55,14 +54,14 @@ const ProfilePage = ({ data }) => {
         page={{ ...page, homeData: homeData, bodyIsMarkdown: false }}
       />
     </Layout>
-  )
-}
+  );
+};
 
 ProfilePage.propTypes = {
   data: PropTypes.object.isRequired,
-}
+};
 
-export default ProfilePage
+export default ProfilePage;
 
 export const profilePageQuery = graphql`
   query ProfilePage($id: String!) {
@@ -88,4 +87,4 @@ export const profilePageQuery = graphql`
     }
     ...LayoutFragment
   }
-`
+`;
