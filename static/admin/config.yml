@@ -2,12 +2,14 @@ backend:
   name: git-gateway
   branch: master
 
+local_backend: false
+
 media_folder: static/img
 
 media_library:
   name: uploadcare
   config:
-    publicKey: 542eb56e1871370c9a63
+    publicKey: 0cd18d006f13d506a0c4
 
 site_folder: /img
 
@@ -21,34 +23,42 @@ collections:
       - file: "src/pages/portfolio/index.md"
         label: "Portfolio"
         name: "portfolio"
-        fields: 
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-page" }
-          - { 
-              label: "Portfolio Types", 
-              name: "portfolioTypes", 
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "portfolio-page",
+            }
+          - {
+              label: "Portfolio Types",
+              name: "portfolioTypes",
               widget: "list",
-              fields: [
-                { label: "Name", name: "name", widget: "string" },
-                {
-                  label: "Jobs",
-                  name: "jobs",
-                  widget: "list",
-                  fields: [
-                    { label: "Name", name: "name", widget: "string" },
-                    { label: "Location", name: "location", widget: "string", required: false },
-                    { 
-                      label: "Image Gallery", 
-                      name: "imageGallery", 
-                      widget: "image",
-                      media_library: {
-                        config: { 
-                          multiple: true
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
+              fields:
+                [
+                  { label: "Name", name: "name", widget: "string" },
+                  {
+                    label: "Jobs",
+                    name: "jobs",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Name", name: "name", widget: "string" },
+                        {
+                          label: "Location",
+                          name: "location",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Image Gallery",
+                          name: "imageGallery",
+                          widget: "image",
+                          media_library: { config: { multiple: true } },
+                        },
+                      ],
+                  },
+                ],
             }
           - {
               label: "SEO & Meta",
@@ -56,9 +66,17 @@ collections:
               widget: "object",
               fields:
                 [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  {
+                    label: "Browser Tab Title",
+                    name: "browserTitle",
+                    widget: "string",
+                  },
                   { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "string",
+                  },
                 ],
             }
       # *********************************** Profile ***********************************
@@ -66,30 +84,46 @@ collections:
         label: "Firm Profile"
         name: "profile"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "profile-page" }
-          - { 
-              label: "Employees", 
-              name: "employees", 
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "profile-page",
+            }
+          - {
+              label: "Employees",
+              name: "employees",
               widget: "list",
-              fields: [
-                { label: "Name", name: "name", widget: "string" },
-                { 
-                  label: "Info", 
-                  name: "info", 
-                  widget: "object",
-                  fields: [
-                    { 
-                      label: "Detail Type", 
-                      name: "detailType", 
-                      widget: "list",
-                      fields: [
-                        { label: "Title", name: "title", widget: "string" },
-                        { label: "Details", name: "details", widget: "markdown" }
-                      ]
-                    }
-                  ]
-                }
-              ]
+              fields:
+                [
+                  { label: "Name", name: "name", widget: "string" },
+                  {
+                    label: "Info",
+                    name: "info",
+                    widget: "object",
+                    fields:
+                      [
+                        {
+                          label: "Detail Type",
+                          name: "detailType",
+                          widget: "list",
+                          fields:
+                            [
+                              {
+                                label: "Title",
+                                name: "title",
+                                widget: "string",
+                              },
+                              {
+                                label: "Details",
+                                name: "details",
+                                widget: "markdown",
+                              },
+                            ],
+                        },
+                      ],
+                  },
+                ],
             }
           - {
               label: "SEO & Meta",
@@ -97,25 +131,34 @@ collections:
               widget: "object",
               fields:
                 [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  {
+                    label: "Browser Tab Title",
+                    name: "browserTitle",
+                    widget: "string",
+                  },
                   { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "string",
+                  },
                 ],
             }
       - file: "src/pages/home/index.md"
         label: "Home"
         name: "home"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
-          - { 
-              label: "Image Gallery", 
-              name: "imageGallery", 
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "home-page",
+            }
+          - {
+              label: "Image Gallery",
+              name: "imageGallery",
               widget: "image",
-              media_library: {
-                config: { 
-                  multiple: true
-                }
-              }
+              media_library: { config: { multiple: true } },
             }
           - {
               label: "SEO & Meta",
@@ -123,16 +166,29 @@ collections:
               widget: "object",
               fields:
                 [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  {
+                    label: "Browser Tab Title",
+                    name: "browserTitle",
+                    widget: "string",
+                  },
                   { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "string",
+                  },
                 ],
             }
       - file: "src/pages/contact/index.md"
         label: "Contact"
         name: "contact"
-        fields: 
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page" }
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "contact-page",
+            }
           - { label: "Address", name: "address", widget: "markdown" }
           - { label: "Phone", name: "phone", widget: "markdown" }
           - { label: "E-mail", name: "email", widget: "string" }
@@ -142,15 +198,23 @@ collections:
               widget: "object",
               fields:
                 [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  {
+                    label: "Browser Tab Title",
+                    name: "browserTitle",
+                    widget: "string",
+                  },
                   { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "string",
+                  },
                 ],
-          }
+            }
       - file: "src/pages/contact/thanks.md"
         label: "Thanks"
         name: "thanks"
-        fields: 
+        fields:
           - { label: "Message", name: "message", widget: "markdown" }
   - name: "headerAndFooter"
     label: "Header & Footer"
@@ -159,7 +223,12 @@ collections:
         label: "Header"
         name: "header"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "header" }
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "header",
+            }
           - {
               label: "Menu Items",
               name: "menuItems",
@@ -167,15 +236,30 @@ collections:
               fields:
                 [
                   { label: "Label", name: "label", widget: "string" },
-                  { label: "Link Type", name: "linkType", widget: "select", options: ["internal", "external"] },
-                  { label: "Link URL", name: "linkURL", widget: "string", hint: "Use a relative URL (e.g. /about) if the link is an internal link." },
+                  {
+                    label: "Link Type",
+                    name: "linkType",
+                    widget: "select",
+                    options: ["internal", "external"],
+                  },
+                  {
+                    label: "Link URL",
+                    name: "linkURL",
+                    widget: "string",
+                    hint: "Use a relative URL (e.g. /about) if the link is an internal link.",
+                  },
                 ],
             }
       - file: "src/pages/footer/index.md"
         label: "Footer"
         name: "footer"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "footer" }
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "footer",
+            }
           - {
               label: "Logo Image & Tagline",
               name: "logoImage",
@@ -183,7 +267,11 @@ collections:
               fields:
                 [
                   { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                  {
+                    label: "Image Description",
+                    name: "imageAlt",
+                    widget: "string",
+                  },
                   { label: "Tagline", name: "tagline", widget: "string" },
                 ],
             }

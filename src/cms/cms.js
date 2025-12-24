@@ -7,6 +7,8 @@ import FooterPreview from "./preview-templates/FooterPreview";
 import NavbarPreview from "./preview-templates/NavbarPreview";
 import ContactPagePreview from "./preview-templates/ContactPagePreview";
 
+CMS.init();
+
 CMS.registerPreviewTemplate("footer", FooterPreview);
 CMS.registerPreviewTemplate("navbar", NavbarPreview);
 CMS.registerPreviewTemplate("portfolio", PortfolioPagePreview);

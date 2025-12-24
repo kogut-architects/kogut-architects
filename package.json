@@ -5,7 +5,9 @@
   "author": "Geoff Mueller",
   "dependencies": {
     "ajv": "^8.17.1",
+    "decap-cms-app": "3.1",
     "gatsby": "^5.0.0",
+    "gatsby-plugin-decap-cms": "^4.0.4",
     "gatsby-plugin-netlify": "^5.0.11",
     "gatsby-plugin-netlify-identity-widget": "^1.1.1",
     "gatsby-plugin-react-helmet": "^6.0.7",

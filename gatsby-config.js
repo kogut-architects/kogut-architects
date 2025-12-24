@@ -27,12 +27,12 @@ module.exports = {
         plugins: [],
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-decap-cms",
-    //   options: {
-    //     modulePath: `${__dirname}/src/cms/cms.js`,
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-decap-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-favicon`,
     //   options: {
@@ -59,7 +59,7 @@ module.exports = {
         }
       },
     },*/
-    "gatsby-plugin-netlify-identity-widget",
+    // "gatsby-plugin-netlify-identity-widget",
     "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 };
