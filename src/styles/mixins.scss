@@ -1,4 +1,5 @@
-@import "./variables.scss";
+@use "sass:map";
+@use "variables.scss";
 
 $breakpoints: (
   "mobile": 665px,
@@ -9,9 +10,9 @@ $breakpoints: (
 
 @mixin respond-to($breakpoint) {
   // If the key exists in the map
-  @if map-has-key($breakpoints, $breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
     // Prints a media query based on the value
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   }
@@ -19,15 +20,15 @@ $breakpoints: (
   // If the key doesn't exist in the map
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+          + "Available breakpoints are: #{map.keys($breakpoints)}.";
   }
 }
 
 @mixin respond-to-max($breakpoint) {
   // If the key exists in the map
-  @if map-has-key($breakpoints, $breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
     // Prints a media query based on the value
-    @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   }
@@ -35,7 +36,7 @@ $breakpoints: (
   // If the key doesn't exist in the map
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+          + "Available breakpoints are: #{map.keys($breakpoints)}.";
   }
 }
 
@@ -97,14 +98,14 @@ $breakpoints: (
 }
 
 @mixin link-border() {
-  border-bottom: 2px solid $highlight;
-  transition: all $transition-duration ease-in-out;
+  border-bottom: 2px solid variables.$highlight;
+  transition: all variables.$transition-duration ease-in-out;
 
   &:hover {
-    background-color: $highlight;
+    background-color: variables.$highlight;
   }
 }
 
 @mixin title-link-border() {
-  border-bottom: 3px solid $highlight;
+  border-bottom: 3px solid variables.$highlight;
 }

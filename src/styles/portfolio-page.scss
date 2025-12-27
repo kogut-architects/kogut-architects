@@ -1,8 +1,8 @@
-@import "./variables.scss";
-@import "./mixins.scss";
+@use "variables.scss";
+@use "mixins.scss";
 
 .portfolio {
-  @include respond-to("large") {
+  @include mixins.respond-to("large") {
     max-width: 75%;
   }
   

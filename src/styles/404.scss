@@ -1,19 +1,19 @@
-@import "./variables.scss";
-@import "./mixins.scss";
+@use "variables.scss";
+@use "mixins.scss";
 
 .pageNotFound {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: $section-padding 0;
+  padding: variables.$section-padding 0;
 
-  @include respond-to("small") {
-    padding: $section-padding-mobile 0;
+  @include mixins.respond-to("small") {
+    padding: variables.$section-padding-mobile 0;
   }
 
   &-title {
-    @include large-font();
-    @include title-link-border();
+    @include mixins.large-font();
+    @include mixins.title-link-border();
     margin-bottom: 40px;
   }
 
@@ -24,8 +24,8 @@
     white-space: pre;
     margin-bottom: 40px;
 
-    @include respond-to("small") {
-      @include medium-font();
+    @include mixins.respond-to("small") {
+      @include mixins.medium-font();
     }
   }
 }

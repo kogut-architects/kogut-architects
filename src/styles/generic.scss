@@ -1,7 +1,7 @@
-@import "./variables.scss";
-@import "./mixins.scss";
-@import url('https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900%7COpen+Sans:300%7CIndie+Flower:regular%7COswald:300,regular,700&subset=latin%2Clatin-ext');
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css');
+@use "variables.scss";
+@use "mixins.scss";
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900%7COpen+Sans:300%7CIndie+Flower:regular%7COswald:300,regular,700&subset=latin%2Clatin-ext");
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
 
 html {
   font-size: 16px;
@@ -9,13 +9,14 @@ html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
-  background-color: $background-light;
+  background-color: variables.$background-light;
 }
 
 body {
-  font-family: "Lato", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  color: $body-dark;
+  font-family: "Lato", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
+  color: variables.$body-dark;
 }
 
 a {
@@ -24,10 +25,10 @@ a {
 }
 
 .section {
-  padding: $section-padding-mobile 0;
+  padding: variables.$section-padding-mobile 0;
 
-  @include respond-to("small") {
-    padding: $section-padding 0;
+  @include mixins.respond-to("small") {
+    padding: variables.$section-padding 0;
   }
 }
 
@@ -43,24 +44,23 @@ a {
   opacity: 0;
   visibility: hidden;
   transition: visibility 0s, opacity 0.5s linear;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
 }
 
-.carousel-control-next-icon:after
-{
-  content: '>';
+.carousel-control-next-icon:after {
+  content: ">";
   font-size: 26px;
   color: black;
 }
 
 .carousel-control-prev-icon:after {
-  content: '<';
+  content: "<";
   font-size: 26px;
   color: black;
 }
 
 .image-gallery:hover .carousel-control-prev-icon,
-.image-gallery:hover .carousel-control-next-icon{
+.image-gallery:hover .carousel-control-next-icon {
   visibility: visible;
   opacity: 1;
 }
